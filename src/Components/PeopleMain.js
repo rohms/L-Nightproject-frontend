@@ -3,8 +3,8 @@ import PeopleHosts from './PeopleHosts.js'
 
 const PeopleMain = () => {
     return (
-        <div>
-            <h2>Hello, anybody, people?</h2>
+        <div className="peoplemaincontainer">
+            <h2>The people behind the L-Night</h2>
             <PeopleHosts />
         </div>
     )
