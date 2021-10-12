@@ -5,6 +5,7 @@ import rk from "../Images/rk.jpg"
 import "../Components/Styles/People.css"
 import placeh from "../Images/placeholder.jpg"
 import dmks from "../Images/dmks.jpg"
+import jt from "../Images/jt.jpg"
 
 const PeopleHosts = () => {
     return (
@@ -24,7 +25,7 @@ const PeopleHosts = () => {
             <Avatar alt="Anna" src={placeh} sx={{width: 100, height: 100}}/><label className="labels">Anna</label>
             </div>
             <div className="personcontainer">
-            <Avatar alt="Justine" src={placeh} sx={{width: 100, height: 100}} /><label className="labels">Justine</label>
+            <Avatar alt="Justine" src={jt} sx={{width: 100, height: 100}} /><label className="labels">Justine</label>
             </div>
             <div className="personcontainer">
             <Avatar alt="Dominika" src={dmks} sx={{width: 100, height: 100}} /><label className="labels">Dominika</label>
