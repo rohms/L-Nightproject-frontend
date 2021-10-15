@@ -1,10 +1,20 @@
-.calendarcontainer {
+.detailcalendarcontainer {
   max-width: 50vh;
   padding: 20px 20px;
 }
 
 .calendarHolder {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
+  margin: 0 auto;
+  padding-left: 40px;
+}
+
+.calendarcontainer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 80vh;
   margin: 0 auto;
 }

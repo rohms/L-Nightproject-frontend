@@ -1,19 +1,27 @@
 import React, { useState } from 'react';
 import "./Styles/Calendar.css";
 import axios from "axios";
-import StaticDatePicker from './DatePicker';
+import ReactCalendar from './ReactCalendar';
+import CalendarDetail from './CalendarDetail';
+
 
 
 
 const Calendarmain = () => {
+
+    
     return (
-        <div>
+        <div className="calendarcontainer">
             <h1>See the upcoming events from our event calendar</h1>
-            <div className="calendardetailbox">Event detail box</div>
+            
+            <div className="calendardetailbox"><CalendarDetail /></div>
 
             <div className="calendarHolder">
-            <StaticDatePicker />
+            
 
+            </div>
+            <div>
+                <ReactCalendar />
             </div>
         </div>
     )

@@ -11,6 +11,7 @@ import PeopleMain from "./Components/PeopleMain";
 
 
 
+
 const AppRouter = () => {
     return (
         <Router>

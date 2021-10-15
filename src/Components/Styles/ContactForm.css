@@ -1,0 +1,40 @@
+.form-container {
+  position: relative;
+  left: 20%;
+  width: 60%;
+  height: 100vh;
+  background-color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.contact-form {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 600px;
+}
+
+input,
+textarea {
+  width: 80%;
+  margin-top: 2rem;
+  border: none;
+  border-bottom: 2px solid black;
+}
+
+.submit {
+  border: 2px solid black;
+  padding: 1rem;
+  text-align: center;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.submit:hover {
+  opacity: 0.6;
+  background-color: rgb(100, 218, 218);
+}
