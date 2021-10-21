@@ -1,66 +1,125 @@
-import React, { useState } from 'react'
-import axios from "axios"
+import React, { useState, useRef, useEffect } from 'react'
 import "./Styles/ContactForm.css"
+import ReCAPTCHA from "react-google-recaptcha";
+import formSchema from "./Validation/FormValidation";
+import { useFormik } from "formik";
+
 
 const ContactForm = () => {
+    
+
+    // NEED TO CECK THE RECAPTCHA STUFF
+    const recaptchaKey = process.env.REACT_APP_PUBLIC_RECAPTCHA_SITE_KEY;
+    const recaptchaRef = useRef();
+    const [recaptchaToken, setRecaptchaToken] = useState("");
+    const [error, setError] = useState('')
     // const [sent, setSent] = useState(false)
+
     const [mailerState, setMailerState] = useState({
       name: "",
       email: "",
+      subject: "",
       message: ""
     });
+
+
    
 
-console.log(mailerState)
+    // const formik = useFormik({
+    //   mailerState: mailerState,
+    //   formSchema: formSchema,
+    //   onSubmit: values => {
+    //     alert(JSON.stringify(values, null,))
+    //   }
 
+    // })
+
+    console.log(mailerState)
+
+    function onChange(value) {
+    console.log("Captcha value:", value);
+    }
 
     const handleChange = (e) => {
         setMailerState((prevState) => ({
-            ...prevState,
-            [e.target.name]: e.target.value,
+          ...prevState,
+          [e.target.name]: e.target.value,
         }));
     }
 
 
     const submitEmail = async (e) => {
         e.preventDefault();
-        // setSent(true)
-        console.log({ mailerState });
-        const response = await fetch("http://localhost:4000/send_mail", {
+        if(!recaptchaToken){
+        alert("You must verify the captcha");
+        return;
+      }
+
+      console.log({ mailerState });
+        
+       setError("");
+       // RECAPTCHA
+       const token = await recaptchaRef.current.getValue();
+       recaptchaRef.current.reset();
+
+       const response = await fetch("http://localhost:4000/send_mail", {
           method: "POST",
-          headers: {
-            "Content-type": "application/json",
-          },
+          headers: {"Content-type": "application/json"},
           body: JSON.stringify({ mailerState }),
         })
           .then((res) => res.json())
           .catch(err => console.log(err))
-          .then(() => {
-            setMailerState({
-              name: "",
-              email: "",
-              message: "",
+          .then(async (res) => {
+          const resData = await res;
+          console.log(resData);
+          if (resData.status === "success"){
+            alert("Message sent");
+            } else if (resData.status === "fail"){
+            alert("Sending message failed")
+            }
+          setMailerState({
+            name: "",
+            email: "",
+            subject: "",
+            message: "",
+            token,
             });
           });
+
+        // setSent(true)
+        // console.log(token, "token");
+
+        
       };
+
 
     return (
         <div>
-            
-            
         <div class="form-container">
         <h2>How to get in touch with us?</h2>
             <form class="contact-form" onSubmit={submitEmail}>
-                <h2>CONTACT</h2>
-                <input type="text" name="name" value={mailerState.name} onChange={handleChange} id="name" placeholder="Name" />
-                <input type="email"  name="email" value={mailerState.email} onChange={handleChange} id="email" placeholder="Email" />
-                <textarea name="message" value={mailerState.message} onChange={handleChange} placeholder="Your message here" id="" cols="30" rows="10"></textarea>
-                <input type="submit" class="submit" value="Send Message"></input>
             
+                <h2>CONTACT</h2>
+                <input type="text" name="name" minLength="2" maxLength="20" value={mailerState.name} onChange={handleChange} id="name" placeholder="Name" />
+                <input type="email" name="email"  value={mailerState.email} onChange={handleChange} id="email" placeholder="Email" />
+                <input type="text"  name="subject" minLength="2" maxLength="30" value={mailerState.subject} onChange={handleChange} id="subject" placeholder="Subject" />
+                <textarea name="message" minLength="10" value={mailerState.message} onChange={handleChange} placeholder="Your message here" id="" cols="30" rows="10"></textarea>
+               
+                <input type="submit" class="submit" value="Send Message"></input>
+                  <div className="recaptchacontainer">
+                 <ReCAPTCHA
+                  ref={recaptchaRef}
+                  sitekey={recaptchaKey}
+                  size="normal"
+                  onChange={onChange}
+                  onChange={recaptchaToken => setRecaptchaToken(recaptchaToken)}
+                  onExpired={e => setRecaptchaToken("")}
+                /> 
+                  </div>
             </form>
+             
         </div>
         </div>
-        
     )
 }
 

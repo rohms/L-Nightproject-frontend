@@ -24,9 +24,9 @@ const getEvents = async () => {
  
 const value = {
     events,
- setEvents,
- loading,
- setLoading
+    setEvents,
+    loading,
+    setLoading
 }
 
     return(

@@ -8,6 +8,7 @@ import Homepage from "./Components/Homepage";
 import Merch from "./Components/Merch";
 import Navbar from "./Components/Navbar";
 import PeopleMain from "./Components/PeopleMain";
+import AdminPage from "./Components/AdminPage";
 
 
 
@@ -25,6 +26,7 @@ const AppRouter = () => {
             <Route exact path="/gallery" component={Gallery} />
             <Route exact path="/merchandise" component={Merch} />
             <Route exact path="/contact" component={Contactpage}/>
+            <Route exact path="/adlog" component={AdminPage}/>
             </Switch>
         </div>
         </Router>

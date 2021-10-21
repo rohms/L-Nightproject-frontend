@@ -13,3 +13,8 @@
   justify-content: center;
   font-weight: bold;
 }
+
+.navbar .adminlog a {
+  text-align: right;
+  color: rgb(255, 253, 246);
+}

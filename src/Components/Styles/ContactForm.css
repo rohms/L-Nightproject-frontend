@@ -38,3 +38,9 @@ textarea {
   opacity: 0.6;
   background-color: rgb(100, 218, 218);
 }
+
+.recaptchacontainer {
+  margin: 0 auto;
+  padding: 10px 10px;
+  width: 80%;
+}

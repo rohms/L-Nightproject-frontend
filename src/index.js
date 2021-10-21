@@ -8,8 +8,6 @@ import { CalendarController } from './Context/CalendarContext';
 
 
 
-
-
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter >

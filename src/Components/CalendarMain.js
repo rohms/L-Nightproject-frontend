@@ -5,25 +5,24 @@ import ReactCalendar from './ReactCalendar';
 import CalendarDetail from './CalendarDetail';
 
 
-
-
 const Calendarmain = () => {
 
     
     return (
-        <div className="calendarcontainer">
-            <h1>See the upcoming events from our event calendar</h1>
+        <>
+        <h1>See the upcoming events</h1>
+        <div className="allcalendar">
+        
+           
             
-            <div className="calendardetailbox"><CalendarDetail /></div>
+                <div className="calendardetailbox"><CalendarDetail /></div>
+                
 
-            <div className="calendarHolder">
-            
-
-            </div>
-            <div>
-                <ReactCalendar />
-            </div>
+                <div className="calendarHolder"><p>I am the calendar holder</p><ReactCalendar /></div>
+                   
+           
         </div>
+        </>
     )
 }
 

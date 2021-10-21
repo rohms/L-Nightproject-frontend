@@ -1,0 +1,84 @@
+.wholesigninpage {
+  width: 100%;
+  height: 100%;
+}
+
+.popupcontainer {
+  font-size: 15px;
+  top: 40%;
+  left: 45%;
+  position: absolute;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.popupcontainer h1 {
+  color: rgb(79, 126, 119);
+  margin-bottom: 40px;
+}
+
+.button {
+  background: rgb(134, 184, 241);
+  color: rgb(67, 83, 81);
+  padding: 10px 10px;
+  font-weight: bolder;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 5px;
+  box-shadow: 10px 10px 15px -4px rgb(79, 126, 119);
+  transition: 0.4s;
+  border: none;
+}
+
+.button:hover {
+  background: rgb(207, 172, 73);
+  color: rgb(88, 108, 173);
+}
+
+.popup {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 500px;
+  width: 400px;
+  background: rgb(127, 143, 150);
+  padding: 20px;
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.popup a {
+  margin-top: 10px;
+  width: 150px;
+}
+
+.popup input {
+  display: block;
+  width: 15rem;
+  height: 2rem;
+  border: 1px solid gray;
+}
+
+.popup .button {
+  padding: 10px;
+  margin-top: 4rem;
+}
+
+.astrocontainer {
+  font-size: 45px;
+}
+
+.close {
+  position: absolute;
+  top: -0.5%;
+  right: 1%;
+  font-size: 30px;
+  cursor: pointer;
+}
