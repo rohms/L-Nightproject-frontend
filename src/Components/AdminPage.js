@@ -3,14 +3,14 @@ import "./Styles/Popup.css";
 import AdminModal from './AdminModal';
 
 const AdminPage = () => {
-    const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(true)
     return (
         
     <div className="wholesigninpage">
             <div className="popupcontainer">
                 <h1>Admin</h1>
-                <button className="button" onClick={() => setIsOpen(true)} >Login</button>
-                <AdminModal open={isOpen} onClose={() => setIsOpen(false)}>
+                {/* <button className="button" onClick={() => setIsOpen(true)} >Login</button> */}
+                <AdminModal  onClose={() => setIsOpen(false)}>
                 
                 </AdminModal>
             </div>

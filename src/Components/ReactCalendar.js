@@ -1,21 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { CalendarContext } from '../Context/CalendarContext';
-
+import { format, nextDay, parseISO } from "date-fns";
+import './Styles/Calendar.css'
 
 
 const ReactCalendar = () => {
-    const [date, setDate] = useState(new Date());
-    // const [events] = useContext(CalendarContext)
+    const {events, loading, date, setDate} = useContext(CalendarContext);
+
+
     const onChange = (date) => {
         setDate(date)
     }
+   
+    function tileClassName({date, view}) {
+        if(events.find(x=>(new Date(x.start_time).toDateString())===new Date(date).toDateString())) 
+        return 'highlight'
+    }
 
-    console.log(CalendarContext)
+    const onClickDay = (date, event) => setDate(date)
 
-    const onClickDay = (date, event) => alert("You clicked on date", date)
-console.log(date);
     return (
         <div>
             <Calendar
@@ -23,7 +28,8 @@ console.log(date);
             value={date}
             defaultView="month"
             onClickDay={onClickDay}
-
+            minDate={new Date()}
+            tileClassName={tileClassName}
             />
         </div>
     );

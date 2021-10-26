@@ -14,7 +14,7 @@ export const AuthController = (props) => {
 
     const getUserWithToken = () => {
         axios
-        .get("http://localhost:3000/me", {
+        .get("http://localhost:4000/adminusers", {
             headers: {
                 "auth-token": localStorage.getItem("token"),
             },
@@ -27,8 +27,8 @@ export const AuthController = (props) => {
     };
 
     const login = (loginData) => {
-        axios.post("http://localhost:3000/auth/login", loginData).then((res) => {
-            localStorage.setItem("token", res.headers["auth-token"]);
+        axios.post("http://localhost:4000/adminusers/login", loginData).then((res) => {
+            localStorage.setItem("token", res.data);
             getUserWithToken();
         });
     };
@@ -38,7 +38,7 @@ export const AuthController = (props) => {
 
     const register = (registerData) => {
         axios
-        .post("http//localhost:3000/auth/register", registerData)
+        .post("http//localhost:4000/adminusers/register", registerData)
         .then((res) => {
             localStorage.setItem("token", res.headers["auth-token"]);
             getUserWithToken();

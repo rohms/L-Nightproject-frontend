@@ -18,7 +18,7 @@ const Calendarmain = () => {
                 <div className="calendardetailbox"><CalendarDetail /></div>
                 
 
-                <div className="calendarHolder"><p>I am the calendar holder</p><ReactCalendar /></div>
+                <div className="calendarHolder"><h3>The L-Night event calendar:</h3><ReactCalendar /></div>
                    
            
         </div>

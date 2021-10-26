@@ -10,7 +10,7 @@ const About = () => {
             </div>
 
             <div className="abouttextcontainer">
-                <p>The L-Night Berlin group was founded in April 2012. The original organizers have changed but the group is going strong. We could safely say that L-Night is one of the most regular meetings for English speaking queer women in Berlin. Lesbian visibility is important and that is also why this group is so precious in many ways and in bringing people together almost for a decade!</p>
+                <p>The L-Night Berlin group was founded in April 2013. The original organizers have changed but the group is going strong. We could safely say that L-Night is one of the most regular meetings for English speaking queer women in Berlin. Lesbian visibility is important and that is also why this group is so precious in many ways and in bringing people together almost for a decade!</p>
                 <p>L-night Berlin group is a friendly, (mainly) English-language social group for queer women and non-binary individuals who feel they have a connection to the women's community. We particularly welcome women who are marginalised within the LGBTQIA+ community, such as trans women, women of colour, older women, disabled women and other similar groups.</p>
                 <h3>When do we meet?</h3>
                 <p>We meet mostly every Tuesday at 8pm and occasionally on weekends for special events/clubs.

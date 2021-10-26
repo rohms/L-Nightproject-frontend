@@ -1,5 +1,13 @@
 .Gallerypicscontainer {
   margin: 0 auto;
   padding: 10px 10px;
-  width: 100vh;
+  max-width: 80%;
+  max-height: 100%;
+  background-color: #c4d4cf;
+}
+
+.thewholegallery {
+  max-width: 100%;
+  max-height: 100%;
+  background-color: #c4d4cf;
 }

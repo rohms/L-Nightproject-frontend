@@ -1,8 +1,7 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef } from 'react'
 import "./Styles/ContactForm.css"
 import ReCAPTCHA from "react-google-recaptcha";
-import formSchema from "./Validation/FormValidation";
-import { useFormik } from "formik";
+
 
 
 const ContactForm = () => {
@@ -21,18 +20,6 @@ const ContactForm = () => {
       subject: "",
       message: ""
     });
-
-
-   
-
-    // const formik = useFormik({
-    //   mailerState: mailerState,
-    //   formSchema: formSchema,
-    //   onSubmit: values => {
-    //     alert(JSON.stringify(values, null,))
-    //   }
-
-    // })
 
     console.log(mailerState)
 
@@ -94,8 +81,8 @@ const ContactForm = () => {
 
 
     return (
-        <div>
-        <div class="form-container">
+        <div className="thewholecontact">
+        <div className="form-container">
         <h2>How to get in touch with us?</h2>
             <form class="contact-form" onSubmit={submitEmail}>
             

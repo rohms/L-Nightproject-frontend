@@ -1,4 +1,3 @@
-import Green from "../Images/Gallerypics/SeedGreen.jpg"
 import Copper from "../Images/Gallerypics/Copper.jpg"
 import Coronet  from "../Images/Gallerypics/Coronet.jpg"
 import Flowers  from "../Images/Gallerypics/Flowers.jpg"
@@ -13,6 +12,7 @@ import Web  from "../Images/Gallerypics/SpiderWeb.jpg"
 import Motion  from "../Images/Gallerypics/StopMotion.jpg"
 import WaterDrops  from "../Images/Gallerypics/WaterDrops.jpg"
 import Waterfall  from "../Images/Gallerypics/Waterfall.jpg"
+import lnightbb from "../Images/Gallerypics/lnightbb.jpg";
 
 
 
@@ -20,8 +20,8 @@ const GalleryPics = [
 
     {
         id: 1,
-        imgSrc: Green,
-        title: "Green seed",
+        imgSrc: lnightbb,
+        title: "L-Night at Dykemarch 2021",
     },
     {
         id: 2,
