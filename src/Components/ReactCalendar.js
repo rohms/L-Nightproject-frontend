@@ -2,7 +2,6 @@ import React, { useState, useContext } from 'react';
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { CalendarContext } from '../Context/CalendarContext';
-import { format, nextDay, parseISO } from "date-fns";
 import './Styles/Calendar.css'
 
 

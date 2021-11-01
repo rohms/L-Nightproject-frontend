@@ -77,8 +77,8 @@
 
 .close {
   position: absolute;
-  top: -0.5%;
-  right: 1%;
+  top: 0.5%;
+  right: 0.5%;
   font-size: 30px;
   cursor: pointer;
 }

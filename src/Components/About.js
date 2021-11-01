@@ -17,7 +17,7 @@ const About = () => {
                 We have had also our first official L-Night party event couple years ago and have bigger plans ahead!</p>
                 <h3>What kind of events do we have?</h3>
                 <p>Venues change week to week as we explore queer/alternative spaces stretching from Prenzlauer Berg to Neukölln and beyond. Past events include park outings, BBQs, club nights, Christmas markets and many other events. We have many favourite bars but new suggestions are always welcome.</p>
-                <p>L-night has expanded steadily since its creation in April 2012. We have all together in Facebook and Meetup around 3,000 members. Our weekly meetings are always on (virtually when needed) and always growing with new members and venue locations. If you're looking to expand your circle of friends or enjoy a drink or trip to the park with like-minded people, join us on Tuesday!</p>
+                <p>L-night has expanded steadily since its creation in April 2013. We have in Facebook and Meetup around 3,000 members. Our weekly meetings are always on (virtually when needed) and always growing with new members and venue locations. If you're looking to expand your circle of friends or enjoy a drink or trip to the park with like-minded people, join us on Tuesday!</p>
                 <p><b>With warm regards,<br/>
                 The L-Night admin team</b></p>
             </div>

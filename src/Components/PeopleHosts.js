@@ -6,6 +6,8 @@ import "../Components/Styles/People.css"
 import placeh from "../Images/placeholder.jpg"
 import dmks from "../Images/dmks.jpg"
 import jt from "../Images/jt.jpg"
+import an from "../Images/an.jpg"
+import bri from "../Images/brid.jpg"
 
 const PeopleHosts = () => {
     return (
@@ -22,7 +24,7 @@ const PeopleHosts = () => {
             <label className="labels">Roosa</label>
             </div>
             <div className="personcontainer">
-            <Avatar alt="Anna" src={placeh} sx={{width: 100, height: 100}}/><label className="labels">Anna</label>
+            <Avatar alt="Anna" src={an} sx={{width: 100, height: 100}}/><label className="labels">Anna</label>
             </div>
             <div className="personcontainer">
             <Avatar alt="Justine" src={jt} sx={{width: 100, height: 100}} /><label className="labels">Justine</label>
@@ -34,7 +36,7 @@ const PeopleHosts = () => {
             <Avatar alt="Evelyn" src={placeh} sx={{width: 100, height: 100}} /><label className="labels">Evelyn</label>
             </div>
             <div className="personcontainer">
-            <Avatar alt="Bridie" src={placeh} sx={{width: 100, height: 100}} /><label className="labels">Bridie</label>
+            <Avatar alt="Bridie" src={bri} sx={{width: 100, height: 100}} /><label className="labels">Bridie</label>
             </div>
             
 

@@ -20,7 +20,7 @@ export const AuthController = (props) => {
             },
         })
         .then((res) => {
-            setUser(res.data.user[0]);
+            setUser(res.data.user);
             setIsLogged(true);
         })
         .catch((err) => console.log("err", err));
@@ -47,9 +47,9 @@ export const AuthController = (props) => {
     };
 
     const logout = (logoutData) => {
+        logoutData.preventDefault();
         localStorage.removeItem("token");
         setIsLogged(false);
-        logoutData.preventDefault();
         history.push(`/`);
     };
 

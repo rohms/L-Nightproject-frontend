@@ -1,16 +1,11 @@
-import React, {useContext} from 'react'
+import React, { useContext } from 'react'
 import "./Styles/Calendar.css"
 import { CalendarContext } from '../Context/CalendarContext'
-import Calendar from "react-calendar";
 
 const CalendarDetail = (props) => {
     const {events, loading, date } = useContext(CalendarContext);
     const currentEvent = events.filter(event => new Date(event.start_time).toDateString() === date.toDateString())
     
-
-
-
-
     return (
         <div className="calendardetailbox">
             {currentEvent.map(event=>{return(

@@ -9,20 +9,15 @@ const Calendarmain = () => {
 
     
     return (
-        <>
+        <div className="calendarpage">
         <h1>See the upcoming events</h1>
+        <h4>- days with events are highlighted -</h4>
         <div className="allcalendar">
-        
-           
+                <CalendarDetail />
+                <div className="calendarHolder"><ReactCalendar /></div>
             
-                <div className="calendardetailbox"><CalendarDetail /></div>
-                
-
-                <div className="calendarHolder"><h3>The L-Night event calendar:</h3><ReactCalendar /></div>
-                   
-           
         </div>
-        </>
+        </div>
     )
 }
 

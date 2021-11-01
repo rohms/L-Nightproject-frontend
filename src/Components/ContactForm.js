@@ -2,12 +2,8 @@ import React, { useState, useRef } from 'react'
 import "./Styles/ContactForm.css"
 import ReCAPTCHA from "react-google-recaptcha";
 
-
-
 const ContactForm = () => {
     
-
-    // NEED TO CECK THE RECAPTCHA STUFF
     const recaptchaKey = process.env.REACT_APP_PUBLIC_RECAPTCHA_SITE_KEY;
     const recaptchaRef = useRef();
     const [recaptchaToken, setRecaptchaToken] = useState("");
@@ -74,8 +70,6 @@ const ContactForm = () => {
           });
 
         // setSent(true)
-        // console.log(token, "token");
-
         
       };
 
@@ -109,6 +103,5 @@ const ContactForm = () => {
         </div>
     )
 }
-
 
 export default ContactForm

@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, useHistory } from "react-router-dom";
 import About from "./Components/About";
 import CalendarMain from "./Components/CalendarMain";
 import Contactpage from "./Components/Contactpage"
@@ -9,17 +9,19 @@ import Merch from "./Components/Merch";
 import Navbar from "./Components/Navbar";
 import PeopleMain from "./Components/PeopleMain";
 import AdminPage from "./Components/AdminPage";
-
-
+import useAuthContext from "./hooks/useAuthContext";
 
 
 const AppRouter = () => {
+    const { isLogged } = useAuthContext();
+    let history = useHistory();
+
     return (
         <Router>
         <Navbar />
         <div className="appcontainer">
             <Switch>
-            <Route exact path="/" component={Homepage} />
+            <Route exact={true} path="/" component={Homepage} />
             <Route exact path="/about" component={About} />
             <Route exact path="/people" component={PeopleMain}/>
             <Route exact path="/calendar" component={CalendarMain} />
