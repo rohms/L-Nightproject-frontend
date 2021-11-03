@@ -17,8 +17,6 @@
   width: 40%;
   margin: 0 auto;
   max-height: fit-content;
-  background-color: #a6bea3;
-  border: 1px solid black;
 }
 .calendarHolder {
   width: 30%;
@@ -33,4 +31,8 @@
   border-radius: 50px;
   width: 1rem;
   height: 3rem;
+}
+
+.unicorn {
+  padding-top: 60px;
 }

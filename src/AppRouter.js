@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch, useHistory } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import About from "./Components/About";
 import CalendarMain from "./Components/CalendarMain";
 import Contactpage from "./Components/Contactpage"
@@ -9,12 +9,9 @@ import Merch from "./Components/Merch";
 import Navbar from "./Components/Navbar";
 import PeopleMain from "./Components/PeopleMain";
 import AdminPage from "./Components/AdminPage";
-import useAuthContext from "./hooks/useAuthContext";
-
+import Footer from "./Components/Footer";
 
 const AppRouter = () => {
-    const { isLogged } = useAuthContext();
-    let history = useHistory();
 
     return (
         <Router>
@@ -31,6 +28,7 @@ const AppRouter = () => {
             <Route exact path="/adlog" component={AdminPage}/>
             </Switch>
         </div>
+        <Footer />
         </Router>
     );
 };

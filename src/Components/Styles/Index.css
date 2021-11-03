@@ -27,3 +27,45 @@
   text-align: right;
   color: rgb(200, 210, 200);
 }
+
+.footer {
+  background: #8a8b86;
+  color: white;
+  margin-top: auto;
+  height: 4rem;
+  width: 100%;
+  position: sticky;
+  top: 100%;
+}
+
+.socials {
+  color: white;
+  display: flex;
+  margin: 0 auto;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
+  width: 100%;
+}
+
+.icons {
+  width: 50px;
+  height: 40px;
+  font-size: 25px;
+  padding-top: 10px;
+}
+
+.fa-clickable {
+  cursor: pointer;
+  outline: none;
+}
+
+.links {
+  color: inherit;
+}
+
+.copyright {
+  font-size: 15px;
+  display: flex;
+  flex-direction: row;
+}

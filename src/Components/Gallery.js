@@ -21,8 +21,6 @@ const Gallery = () => {
             <div className={model ?  "model open" : "model"}>
                 <img src={tempimgSrc} />
                 <CloseIcon onClick={() => setModel(false)}/>
-                
-
             </div>
             <h2>Gallery</h2>
                 <div className="Gallerypicscontainer">
@@ -32,10 +30,8 @@ const Gallery = () => {
                             </div> ))}
                         )
                     }
-                    
                 </div>
                 {isLogged  ? <ImageUpload /> : null }
-                
         </div>
         
     )

@@ -1,6 +1,5 @@
 import React from 'react'
 import PeopleHosts from './PeopleHosts.js'
-import SignInPage from './SignInPage.js'
 
 const PeopleMain = () => {
     return (

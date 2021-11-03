@@ -18,7 +18,6 @@ const ContactForm = () => {
     });
 
     console.log(mailerState)
-
     function onChange(value) {
     console.log("Captcha value:", value);
     }
@@ -68,10 +67,8 @@ const ContactForm = () => {
             token,
             });
           });
-
-        // setSent(true)
         
-      };
+    };
 
 
     return (

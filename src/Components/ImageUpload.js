@@ -1,16 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import "./Styles/Gallery.css"
 import axios from "axios"
-import Message from './Alerts/Message'
+
 
 const ImageUpload = () => {
-    const [error, setError] = useState("");
-    const [message, setMessage] = useState("");
     const [image, setImage] = useState("");
 
-    // const PicURL = process.env.REACT_APP_PICTURES_URL
-       const PicURL = "http://localhost:4000/pictures/upload"
-
+    const PicURL = process.env.REACT_APP_PICTURES_URL
 
     const handleChange = (e) => {
         setImage({ picture: e.target.files[0]})
@@ -27,21 +23,17 @@ const ImageUpload = () => {
        
             }).then(res => {
                 console.log(res)
-                alert("File was uploaded")
+                if(res.data ==  "Wrong filetype")
+                alert("Not a valid image format")
+                else{
+                    alert("File was uploaded")
+                }
+            }).catch(err => {
+                console.log(err)
+                
             })
-            if (error) {
-            throw error;
-        }   else setError("");
-                    
-    
-            // console.log(image)
-            //  if(!image){
-            //     alert("Please add a file.");
-            //     return;
-            // await handleChange(formData)
-            //     .then(response => setImage )
-    }   
-
+        }
+            
     return (
         <div className="imageUpload">
             <h2>Upload Image</h2>
@@ -50,9 +42,9 @@ const ImageUpload = () => {
                 <button type="submit">Upload</button>
 
             </form>
-            {/* accept="image/png, image/jpeg, image/jpg, image/gif" */}
         </div>
     )
+
   }
 
 export default ImageUpload;
