@@ -1,8 +1,15 @@
 import { createContext, useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory } from "react-router";
+// import dotenv from "dotenv";
+
 
 export const AuthContext = createContext();
+const adminURL = process.env.REACT_APP_ADMINUSERS;
+const adminLogin = process.env.REACT_APP_ADMINUSERS_LOGIN;
+const adminRegister = process.env.REACT_APP_ADMINUSERS_REGISTER;
+
+
 
 export const AuthController = (props) => {
     const [user, setUser] = useState();
@@ -14,7 +21,7 @@ export const AuthController = (props) => {
 
     const getUserWithToken = () => {
         axios
-        .get("http://localhost:4000/adminusers", {
+        .get(adminURL, {
             headers: {
                 "auth-token": localStorage.getItem("token"),
             },
@@ -27,18 +34,18 @@ export const AuthController = (props) => {
     };
 
     const login = (loginData) => {
-        axios.post("http://localhost:4000/adminusers/login", loginData).then((res) => {
+        axios.post(adminLogin, loginData).then((res) => {
             localStorage.setItem("token", res.data);
             getUserWithToken();
         });
     };
 
 
-    // I THINK I wont need to have register, or it should not be available for everybody
+    // I THINK I wont need to have register
 
     const register = (registerData) => {
         axios
-        .post("http//localhost:4000/adminusers/register", registerData)
+        .post(adminRegister, registerData)
         .then((res) => {
             localStorage.setItem("token", res.headers["auth-token"]);
             getUserWithToken();

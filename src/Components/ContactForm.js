@@ -5,6 +5,8 @@ import ReCAPTCHA from "react-google-recaptcha";
 const ContactForm = () => {
     
     const recaptchaKey = process.env.REACT_APP_PUBLIC_RECAPTCHA_SITE_KEY;
+    const sendMailURL = process.env.REACT_APP_SEND_MAIL;
+
     const recaptchaRef = useRef();
     const [recaptchaToken, setRecaptchaToken] = useState("");
     const [error, setError] = useState('')
@@ -44,7 +46,7 @@ const ContactForm = () => {
        const token = await recaptchaRef.current.getValue();
        recaptchaRef.current.reset();
 
-       const response = await fetch("http://localhost:4000/send_mail", {
+       const response = await fetch(sendMailURL, {
           method: "POST",
           headers: {"Content-type": "application/json"},
           body: JSON.stringify({ mailerState }),

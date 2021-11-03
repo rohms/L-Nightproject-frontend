@@ -3,6 +3,7 @@ import { createContext, useState, useEffect } from "react";
 
 
 export const CalendarContext = createContext();
+const eventsAPI = process.env.REACT_APP_EVENTS;
 
 export const CalendarController = (props) => {
  const [events, setEvents] = useState([]);
@@ -16,7 +17,7 @@ useEffect(() => {
 
 const getEvents = async () => {
     await axios
-        .get("https://l-night-app.herokuapp.com/events")
+        .get(eventsAPI)
     // .get("https://graph.facebook.com/v12.0/322950981168488/events",  { headers: {"accessToken" : ""}, AppID: })
    
     .then((response) => setEvents(response.data));
