@@ -9,7 +9,6 @@ const ContactForm = () => {
 
     const recaptchaRef = useRef();
     const [recaptchaToken, setRecaptchaToken] = useState("");
-    const [error, setError] = useState('')
     // const [sent, setSent] = useState(false)
 
     const [mailerState, setMailerState] = useState({
@@ -41,7 +40,6 @@ const ContactForm = () => {
 
       console.log({ mailerState });
         
-       setError("");
        // RECAPTCHA
        const token = await recaptchaRef.current.getValue();
        recaptchaRef.current.reset();
@@ -82,7 +80,7 @@ const ContactForm = () => {
                 <h2>CONTACT</h2>
                 <input type="text" name="name" minLength="2" maxLength="20" value={mailerState.name} onChange={handleChange} id="name" placeholder="Name" />
                 <input type="email" name="email"  value={mailerState.email} onChange={handleChange} id="email" placeholder="Email" />
-                <input type="text"  name="subject" minLength="2" maxLength="30" value={mailerState.subject} onChange={handleChange} id="subject" placeholder="Subject" />
+                <input type="text"  name="subject" minLength="2" maxLength="100" value={mailerState.subject} onChange={handleChange} id="subject" placeholder="Subject" />
                 <textarea name="message" minLength="10" value={mailerState.message} onChange={handleChange} placeholder="Your message here" id="" cols="30" rows="10"></textarea>
                
                 <input type="submit" class="submit" value="Send Message"></input>
