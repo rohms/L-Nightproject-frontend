@@ -1,9 +1,11 @@
 import React from 'react'
+import "./Styles/Merch.css"
 
 const Merch = () => {
     return (
-        <div>
+        <div className="merch-container">
             <h2>Merch</h2>
+            <p>to be continued...</p>
         </div>
     )
 }

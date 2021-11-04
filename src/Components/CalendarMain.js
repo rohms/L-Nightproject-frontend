@@ -1,17 +1,18 @@
-import React from 'react'
-import "./Styles/Calendar.css"
-import axios from "axios";
-
-
+import React from 'react';
+import "./Styles/Calendar.css";
+import ReactCalendar from './ReactCalendar';
+import CalendarDetail from './CalendarDetail';
 
 
 const Calendarmain = () => {
     return (
-        <div>
-            <h1>See the upcoming events from our event calendar</h1>
-            <div className="calendardetailbox">Event detail box</div>
-
-            <div className="calendarHolder">Calendar Comes here</div>
+        <div className="calendarpage">
+        <h1>See the upcoming events</h1>
+        <h4>- days with events are highlighted in purple -</h4>
+        <div className="allcalendar">
+                <CalendarDetail />
+                <div className="calendarHolder"><ReactCalendar /></div>
+        </div>
         </div>
     )
 }

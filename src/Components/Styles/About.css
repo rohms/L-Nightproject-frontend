@@ -1,8 +1,22 @@
 .abouttextcontainer {
-  max-width: 50%;
+  max-width: 90vh;
+  max-height: 100%;
   text-align: center;
   display: flex;
   flex-direction: column;
-  padding: 10px 10px;
+  padding: 15px 10px;
   margin: 0 auto;
+  font-family: "Poppins", sans-serif;
+  background-color: #c4d4cf;
+  line-height: 1.4;
+}
+
+.abouttextcontainer p {
+  color: black;
+}
+
+.aboutmaincontainer {
+  max-width: 100%;
+  max-height: 100%;
+  background-color: #c4d4cf;
 }

@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react';
+import ContactForm from './ContactForm';
 
 const Contactpage = () => {
+
+
     return (
-        <div>
-            <h2>How to get in touch with us?</h2>
-        </div>
+     <ContactForm />
     )
 }
 

@@ -1,20 +1,26 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { NavLink, useHistory } from 'react-router-dom';
 import "./Styles/Index.css";
+import useAuthContext from "../hooks/useAuthContext";
+import { Button } from "@mui/material";
+import { Avatar } from "@material-ui/core";
 
 
-const Navbar = () => {
+const Navbar = (props) => {
+    const { isLogged, setIsLogged, logout, user } = useAuthContext();
+    let history = useHistory();
+
     return (
         <div className="navbar">
-            <NavLink className="navlink" to="/">Homepage</NavLink>
-            <NavLink className="navlink" to="/about">About</NavLink>
-            <NavLink className="navlink" to="/people">People</NavLink>
-            <NavLink className="navlink" to="/calendar">Calendar</NavLink>
-            <NavLink className="navlink" to="/gallery">Gallery</NavLink>
-            <NavLink className="navlink" to="/merchandise">Merch</NavLink>
-            <NavLink className="navlink" to="/contact">Contact</NavLink>
-            
-            
+            <NavLink className="navlink" exact={true} to="/">HOME</NavLink>
+            <NavLink className="navlink"  to="/about">ABOUT</NavLink>
+            <NavLink className="navlink"  to="/people">PEOPLE</NavLink>
+            <NavLink className="navlink"  to="/calendar">CALENDAR</NavLink>
+            <NavLink className="navlink"  to="/gallery">GALLERY</NavLink>
+            <NavLink className="navlink"  to="/merchandise">MERCH</NavLink>
+            <NavLink className="navlink"  to="/contact">CONTACT</NavLink>
+            <div className="adminlog"><NavLink className="navlink" to="/adlog">admin</NavLink></div>
+            {isLogged  ? <Button id="logout" onClick={logout}>Logout</Button> : null }              
         </div>
     )
 }
