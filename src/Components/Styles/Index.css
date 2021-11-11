@@ -23,7 +23,7 @@
   color: rgb(29, 29, 233);
 }
 
-.navbar a:visited {
+.navbar a.visited {
   text-decoration: none;
   color: inherit;
 }
