@@ -23,6 +23,11 @@
   color: rgb(29, 29, 233);
 }
 
+.navbar a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
 .navbar .adminlog a {
   text-align: right;
   color: rgb(200, 210, 200);
