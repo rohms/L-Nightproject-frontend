@@ -18,7 +18,7 @@ useEffect(() => {
 const getEvents = async () => {
     await axios
         .get(eventsAPI)
-    // .get("https://graph.facebook.com/v12.0/322950981168488/events",  { headers: {"accessToken" : ""}, AppID: })
+    // will be applied later when FB API available .get("https://graph.facebook.com/v12.0/322950981168488/events",  { headers: {"accessToken" : ""}, AppID: })
    
     .then((response) => setEvents(response.data));
     setLoading(true);

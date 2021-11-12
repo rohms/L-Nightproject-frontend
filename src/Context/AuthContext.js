@@ -1,7 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory } from "react-router";
-// import dotenv from "dotenv";
 
 
 export const AuthContext = createContext();
@@ -40,8 +39,6 @@ export const AuthController = (props) => {
         });
     };
 
-
-    // I THINK I wont need to have register
 
     const register = (registerData) => {
         axios
