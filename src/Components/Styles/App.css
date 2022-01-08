@@ -1,12 +1,12 @@
 html {
-  height: 100%;
+  min-height: 100%;
 }
 
 .App {
   text-align: center;
   font-family: "Poppins", sans-serif;
   margin: 0 auto;
-  min-height: 100%;
+  min-height: 100vh;
   max-width: 100%;
   background-color: #c4d4cf;
   display: flex;
