@@ -1,12 +1,8 @@
-import React, { useState } from 'react';
-import ContactForm from './ContactForm';
+import React, { useState } from "react";
+import ContactForm from "./ContactForm";
 
 const Contactpage = () => {
+  return <ContactForm />;
+};
 
-
-    return (
-     <ContactForm />
-    )
-}
-
-export default Contactpage
+export default Contactpage;
