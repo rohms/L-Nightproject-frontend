@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import GalleryPics from "./Gallerypics";
 import "../Components/Styles/Gallery.css";
 import CloseIcon from "@material-ui/icons/Close";
 import ImageUpload from "./ImageUpload";
 import useAuthContext from "../hooks/useAuthContext";
-import axios from "axios";
 
 const S3Pics = process.env.REACT_APP_PICTURES_GET;
 
