@@ -6,6 +6,7 @@
   align-items: center;
   justify-content: center;
   font-weight: bold;
+  background-color: #75a9a1;
 }
 
 .navbar a {
@@ -15,7 +16,7 @@
 }
 
 .navbar a:hover {
-  color: rgb(172, 82, 255);
+  color: rgb(139, 53, 219);
 }
 
 .navbar a:active,
@@ -30,7 +31,7 @@
 
 .navbar .adminlog a {
   text-align: right;
-  color: rgb(200, 210, 200);
+  color: #75a79f;
 }
 
 .footer {
