@@ -36,7 +36,7 @@ const CalendarDetail = (props) => {
       ) : (
         <div>
           <div className="unicorn">
-            <img src={unicorn} />
+            <img src={unicorn} alt="Unicorn" />
           </div>
           <p>Unicorns are sleeping today..zzz..</p>
         </div>
