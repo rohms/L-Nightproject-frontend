@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, Navigate, useNavigate } from "react-router-dom";
 import "./Styles/Index.css";
 import useAuthContext from "../hooks/useAuthContext";
 import { Button } from "@mui/material";
@@ -7,7 +7,7 @@ import { Avatar } from "@material-ui/core";
 
 const Navbar = (props) => {
   const { isLogged, setIsLogged, logout, user } = useAuthContext();
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
     <div className="navbar">

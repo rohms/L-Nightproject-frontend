@@ -20,13 +20,13 @@ const AppRouter = () => {
       <div className="App">
         <Routes>
           <Route exact={true} path="/" element={<Homepage />} />
-          <Route exact path="/about" element={<About />} />
-          <Route exact path="/people" element={<PeopleMain />} />
-          <Route exact path="/calendar" element={<CalendarMain />} />
-          <Route exact path="/gallery" element={<Gallery />} />
-          <Route exact path="/merchandise" element={<Merch />} />
-          <Route exact path="/contact" element={<Contactpage />} />
-          <Route exact path="/adlog" element={<AdminPage />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/people" element={<PeopleMain />} />
+          <Route path="/calendar" element={<CalendarMain />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/merchandise" element={<Merch />} />
+          <Route path="/contact" element={<Contactpage />} />
+          <Route path="/adlog" element={<AdminPage />} />
         </Routes>
       </div>
       <Footer />
