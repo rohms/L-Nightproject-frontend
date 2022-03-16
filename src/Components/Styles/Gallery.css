@@ -83,7 +83,7 @@
   margin: 0 auto;
 }
 
-@media (max-width: 2500px) {
+@media (max-width: 2002px) {
   .Gallerypicscontainer {
     -webkit-column-count: 3;
     -moz-column-count: 3;
