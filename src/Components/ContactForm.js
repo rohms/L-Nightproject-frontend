@@ -70,7 +70,6 @@ const ContactForm = () => {
   return (
     <div className="thewholecontact">
       <div className="form-container">
-        <h2>How to get in touch with us?</h2>
         <form class="contact-form" onSubmit={submitEmail}>
           <h2>CONTACT</h2>
           <input
