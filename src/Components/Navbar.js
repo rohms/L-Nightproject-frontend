@@ -4,6 +4,8 @@ import "./Styles/Index.css";
 import useAuthContext from "../hooks/useAuthContext";
 import { Button } from "@mui/material";
 import { Avatar } from "@material-ui/core";
+import lnights from "../Images/lnightsmall.png";
+import lnightxs from "../Images/lnightexs.png";
 
 const Navbar = (props) => {
   const { isLogged, setIsLogged, logout, user } = useAuthContext();
@@ -11,32 +13,35 @@ const Navbar = (props) => {
 
   return (
     <div className="navbar">
-      <NavLink className="navlink" exact={true} to="/">
-        HOME
+      <NavLink className="lnightlogo" exact={true} to="/">
+        <img src={lnights} className="lnightlogo" alt="L-Night Berlin Group" />
       </NavLink>
-      <NavLink className="navlink" to="/about">
-        ABOUT
-      </NavLink>
-      <NavLink className="navlink" to="/people">
-        PEOPLE
-      </NavLink>
-      <NavLink className="navlink" to="/calendar">
-        CALENDAR
-      </NavLink>
-      <NavLink className="navlink" to="/gallery">
-        GALLERY
-      </NavLink>
-      <NavLink className="navlink" to="/merchandise">
-        MERCH
-      </NavLink>
-      <NavLink className="navlink" to="/contact">
-        CONTACT
-      </NavLink>
-      <div className="adminlog">
-        <NavLink className="navlink" to="/adlog">
-          admin
+      <div className="menu">
+        <NavLink className="navlink nav" to="/about">
+          ABOUT
+        </NavLink>
+        <NavLink className="navlink nav" to="/people">
+          PEOPLE
+        </NavLink>
+        <NavLink className="navlink nav" to="/calendar">
+          CALENDAR
+        </NavLink>
+        <NavLink className="navlink nav" to="/gallery">
+          GALLERY
+        </NavLink>
+        <NavLink className="navlink nav" to="/merchandise">
+          MERCH
+        </NavLink>
+        <NavLink className="navlink nav" to="/contact">
+          CONTACT
         </NavLink>
       </div>
+      <div className="adminlog">
+        <NavLink className="navlink" to="/adlog">
+          ADMIN
+        </NavLink>
+      </div>
+
       {isLogged ? (
         <Button id="logout" onClick={logout}>
           Logout

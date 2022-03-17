@@ -1,22 +1,60 @@
 .navbar {
-  padding: 10px 10px;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   text-align: center;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   font-weight: bold;
-  background-color: #75a9a1;
+  background-color: #c5bfbf;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  margin-bottom: 5vh;
+}
+
+.menu {
+  display: flex;
+  padding-bottom: 0.25rem;
+  position: relative;
+  margin-right: 10rem;
+  flex-wrap: wrap;
 }
 
 .navbar a {
   text-decoration: none;
-  padding: 10px 15px;
+  padding: 10px;
   text-align: center;
 }
 
 .navbar a:hover {
-  color: rgb(139, 53, 219);
+  color: rgb(137, 69, 201);
+}
+
+.navlink a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.navlink.nav {
+  display: inline-block;
+  padding-bottom: 0.25rem;
+  position: relative;
+  padding: 0.5rem 1rem;
+}
+
+.navlink::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  background-color: rgb(179, 89, 156);
+  transition: width 0.25s ease-out;
+}
+
+.navlink:hover::before {
+  width: 100%;
 }
 
 .navbar a:active,
@@ -30,15 +68,18 @@
 }
 
 .navbar .adminlog a {
-  text-align: right;
-  color: #75a79f;
+  color: #c2bbbb;
+}
+
+.lnightlogo {
+  cursor: pointer;
+  height: 8vh;
 }
 
 .footer {
-  background: #8a8b86;
+  background: #a89f9f;
   color: white;
-  margin-top: auto;
-  height: 4rem;
+  margin-top: 5vh;
   width: 100%;
   position: sticky;
   top: 100%;
@@ -50,15 +91,14 @@
   margin: 0 auto;
   flex-direction: row;
   justify-content: center;
-  align-items: baseline;
+  align-items: center;
   width: 100%;
 }
 
 .icons {
-  width: 50px;
-  height: 40px;
-  font-size: 25px;
-  padding-top: 10px;
+  margin: 10px;
+  font-size: 2rem;
+  padding: 5px 0;
 }
 
 .fa-clickable {
@@ -68,10 +108,4 @@
 
 .links {
   color: inherit;
-}
-
-.copyright {
-  font-size: 15px;
-  display: flex;
-  flex-direction: row;
 }
