@@ -17,6 +17,10 @@
   font-size: 2rem;
 }
 
+.headergroup h2 {
+  font-size: 1.5rem;
+}
+
 .neonline {
   width: 35vw;
   height: 10vh;
