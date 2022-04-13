@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Styles/Gallery.css";
 import axios from "axios";
+import "./Styles/Style.css";
 
 const ImageUpload = () => {
   const [image, setImage] = useState("");

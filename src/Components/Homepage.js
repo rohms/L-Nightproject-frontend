@@ -1,9 +1,9 @@
 import React from "react";
 import lnightb from "../Images/lnightber3.jpg";
-import "../Components/Styles/Homepage.css";
 import lnightglow from "../Images/Lnightglow.png";
 import lnightdp from "../Images/lnightdp.png";
 import neonline from "../Images/neon-line.png";
+import "./Styles/Style.css";
 
 const Homepage = () => {
   return (
@@ -15,11 +15,15 @@ const Homepage = () => {
       ></img>
 
       <div className="headergroup">
-        <h1>Welcome to meet new people in L-Night</h1>
+        <h1 className="headergroup__h1">
+          Welcome to meet new people in the L-Night
+        </h1>
         <span>
           <img className="neonline" src={neonline} alt="neon line" />
         </span>
-        <h2>The group for queer and lesbian women in Berlin</h2>
+        <h2 className="headergroup__h2">
+          The group for queer and lesbian women in Berlin
+        </h2>
       </div>
     </div>
   );

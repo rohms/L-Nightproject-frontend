@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import "./Styles/Calendar.css";
 import { CalendarContext } from "../Context/CalendarContext";
-import unicorn from "../Images/unicorn3.png";
+import unicorn from "../Images/unicorn3even.png";
+import "./Styles/Style.css";
 
 const CalendarDetail = (props) => {
   const { events, date } = useContext(CalendarContext);
@@ -34,11 +34,11 @@ const CalendarDetail = (props) => {
           );
         })
       ) : (
-        <div>
+        <div className="allcalendar">
           <div className="unicorn">
             <img src={unicorn} alt="Unicorn" />
+            <p>Unicorns are sleeping today..zzz..</p>
           </div>
-          <p>Unicorns are sleeping today..zzz..</p>
         </div>
       )}
     </div>

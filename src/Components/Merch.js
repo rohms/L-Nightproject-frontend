@@ -1,5 +1,6 @@
 import React from "react";
 import "./Styles/Merch.css";
+import "./Styles/Style.css";
 
 const Merch = () => {
   return (

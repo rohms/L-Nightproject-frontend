@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
-import "./Styles/ContactForm.css";
 import ReCAPTCHA from "react-google-recaptcha";
+import "./Styles/Style.css";
 
 const ContactForm = () => {
   const recaptchaKey = process.env.REACT_APP_PUBLIC_RECAPTCHA_SITE_KEY;

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { CalendarContext } from "../Context/CalendarContext";
-import "./Styles/Calendar.css";
+import "./Styles/Style.css";
 
 const ReactCalendar = () => {
   const { events, loading, date, setDate } = useContext(CalendarContext);
