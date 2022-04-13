@@ -38,10 +38,10 @@
   color: rgb(137, 69, 201);
 }
 
-.navlink a {
+/* .navlink a {
   text-decoration: none;
   color: inherit;
-}
+} */
 
 .navlink.nav {
   display: flex;
