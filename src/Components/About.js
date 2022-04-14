@@ -1,13 +1,13 @@
 import React from "react";
-import "../Components/Styles/About.css";
+import "../Components/Styles/Style.css";
 
 const About = () => {
   return (
     <div className="aboutmaincontainer">
       <div>
-        <h1>What is the L-Night group?</h1>
+        <h2>What is the L-Night group?</h2>
       </div>
-      <div className="abouttextcontainer">
+      <div className="textcontainer">
         <p>
           The L-Night Berlin group was founded in April 2013. The original
           organizers have changed but the group is going strong. We could safely
@@ -16,6 +16,7 @@ const About = () => {
           important and that is also why this group is so precious in many ways.
           L-Night has been bringing people together already almost for a decade!
         </p>
+        <span>🦄🦄🦄🦄🦄</span>
         <p>
           L-night Berlin group is a friendly, (mainly) English-language social
           group for queer women and non-binary individuals who feel they have a
@@ -37,6 +38,7 @@ const About = () => {
           other events. We have many favourite bars but new suggestions are
           always welcome.
         </p>
+        <span>🦄🦄🦄🦄🦄</span>
         <p>
           L-night has expanded steadily since its creation in April 2013. We
           have around 3,000 members in Facebook and Meetup. Our weekly meetings

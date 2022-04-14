@@ -2,12 +2,12 @@ import React from "react";
 import { Avatar } from "@mui/material";
 import rhm1 from "../Images/rhm1.jpg";
 import rk from "../Images/rk.jpg";
-import "../Components/Styles/People.css";
 import placeh from "../Images/placeholder.jpg";
 import dmks from "../Images/dmks.jpg";
 import jt from "../Images/jt.jpg";
 import an from "../Images/an.jpg";
 import bri from "../Images/brid.jpg";
+import "./Styles/Style.css";
 
 const PeopleHosts = () => {
   return (
@@ -34,6 +34,7 @@ const PeopleHosts = () => {
           should have enough place for everybody.
         </p>
       </div>
+
       <h3>Here are some of the hosts:</h3>
       <div className="allavatarcontainer">
         <div className="personcontainer">

@@ -6,6 +6,7 @@ import { Button } from "@mui/material";
 import { Avatar } from "@material-ui/core";
 import lnights from "../Images/lnightsmall.png";
 import lnightxs from "../Images/lnightexs.png";
+import "./Styles/Style.css";
 
 const Navbar = (props) => {
   const { isLogged, setIsLogged, logout, user } = useAuthContext();
@@ -13,7 +14,7 @@ const Navbar = (props) => {
 
   return (
     <div className="navbar">
-      <NavLink className="lnightlogo" exact={true} to="/">
+      <NavLink className="" exact={true} to="/">
         <img src={lnights} className="lnightlogo" alt="L-Night Berlin Group" />
       </NavLink>
       <div className="menu">
@@ -35,11 +36,11 @@ const Navbar = (props) => {
         <NavLink className="navlink nav" to="/contact">
           CONTACT
         </NavLink>
-      </div>
-      <div className="adminlog">
-        <NavLink className="navlink" to="/adlog">
-          ADMIN
-        </NavLink>
+        <div className="adminlog">
+          <NavLink className="adminlog" to="/adlog">
+            ADMIN
+          </NavLink>
+        </div>
       </div>
 
       {isLogged ? (

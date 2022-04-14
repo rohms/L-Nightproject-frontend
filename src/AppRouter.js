@@ -10,8 +10,8 @@ import Navbar from "./Components/Navbar";
 import PeopleMain from "./Components/PeopleMain";
 import AdminPage from "./Components/AdminPage";
 import Footer from "./Components/Footer";
-import "./Components/Styles/App.css";
 import "./Components/Styles/Index.css";
+import "./Components/Styles/Style.css";
 
 const AppRouter = () => {
   return (

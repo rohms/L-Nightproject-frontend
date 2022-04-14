@@ -7,7 +7,7 @@
   font-size: 15px;
   top: 40%;
   left: 45%;
-  position: absolute;
+  /* position: absolute; */
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -36,6 +36,7 @@
 .button:hover {
   background: rgb(207, 172, 73);
   color: rgb(88, 108, 173);
+  cursor: pointer;
 }
 
 .popup {

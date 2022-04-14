@@ -1,13 +1,13 @@
 import React from "react";
-import "./Styles/Calendar.css";
 import ReactCalendar from "./ReactCalendar";
 import CalendarDetail from "./CalendarDetail";
+import "./Styles/Style.css";
 
 const Calendarmain = () => {
   return (
     <div className="calendarpage">
-      <h1>See the upcoming events</h1>
-      <h4>- days with events are highlighted in purple -</h4>
+      <h2>See the upcoming events</h2>
+      <h4>🦄 events are highlighted in purple 🦄</h4>
       <div className="allcalendar">
         <CalendarDetail />
         <div className="calendarHolder">

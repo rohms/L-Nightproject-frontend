@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Styles/Popup.css";
 import AdminModal from "./AdminModal";
 import Modal from "react-modal";
+import "./Styles/Style.css";
 
 Modal.setAppElement("#root");
 const AdminPage = () => {

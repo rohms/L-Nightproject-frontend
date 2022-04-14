@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import "./Styles/Popup.css";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/AuthContext";
+import "./Styles/Style.css";
 
 const AdminModal = (props) => {
   const { login } = useContext(AuthContext);
