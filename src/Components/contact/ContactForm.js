@@ -22,8 +22,6 @@ const ContactForm = () => {
     }
   };
 
-  console.log(mailerState);
-
   const handleChange = (e) => {
     setMailerState((prevState) => ({
       ...prevState,
