@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "./Styles/Popup.css";
+import "../Styles/Popup.css";
 import AdminModal from "./AdminModal";
 import Modal from "react-modal";
-import "./Styles/Style.css";
+import "../Styles/Style.css";
 
 Modal.setAppElement("#root");
 const AdminPage = () => {
@@ -10,7 +10,6 @@ const AdminPage = () => {
   return (
     <div className="wholesigninpage">
       <div className="popupcontainer">
-        <h1>Admin</h1>
         <button className="button" onClick={() => setModalIsOpen(true)}>
           Go to Login
         </button>
@@ -26,7 +25,7 @@ const AdminPage = () => {
           }}
         >
           <div className="close" onClick={() => setModalIsOpen(false)}>
-            <i class="far fa-times-circle"></i>
+            <i className="far fa-times-circle"></i>
           </div>
           <AdminModal />
         </Modal>

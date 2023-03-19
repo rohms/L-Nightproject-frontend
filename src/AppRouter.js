@@ -1,14 +1,14 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import About from "./Components/About";
-import CalendarMain from "./Components/CalendarMain";
-import Contactpage from "./Components/Contactpage";
-import Gallery from "./Components/Gallery";
+import CalendarMain from "./Components/calendar/CalendarMain";
+import Contactpage from "./Components/contact/Contactpage";
+import Gallery from "./Components/gallery/Gallery";
 import Homepage from "./Components/Homepage";
-import Merch from "./Components/Merch";
+import Merch from "./Components/merch/Merch";
 import Navbar from "./Components/Navbar";
-import PeopleMain from "./Components/PeopleMain";
-import AdminPage from "./Components/AdminPage";
+import PeopleMain from "./Components/people/PeopleMain";
+import AdminPage from "./Components/admin/AdminPage";
 import Footer from "./Components/Footer";
 import "./Components/Styles/Index.css";
 import "./Components/Styles/Style.css";
@@ -19,7 +19,7 @@ const AppRouter = () => {
       <Navbar />
       <div className="App">
         <Routes>
-          <Route exact={true} path="/" element={<Homepage />} />
+          <Route path="/" element={<Homepage />} />
           <Route path="/about" element={<About />} />
           <Route path="/people" element={<PeopleMain />} />
           <Route path="/calendar" element={<CalendarMain />} />

@@ -1,55 +1,63 @@
 .navbar {
   width: 100%;
   display: flex;
-  text-align: center;
   align-items: center;
-  position: static;
   top: 0;
-  justify-content: space-between;
-  background-color: var(--clr-nav);
-  /* background-color: #c4afaf; */
+  background: linear-gradient(270deg, #c757c7 0%, #6870cf 100%);
   text-decoration: none;
   letter-spacing: 0.5px;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
   font-weight: 900;
+  overflow: hidden;
+  height: 5rem;
 }
 
-/* * {
-  border: 1px solid red;
-} */
-
-.menu {
-  width: 100vw;
+/* this is still somehow ffecting the mobile version of menu */
+.slider ul {
   display: flex;
-  position: relative;
-  align-items: center;
-  align-content: center;
-  padding-left: 25em;
-}
-
-.navbar a {
-  text-decoration: none;
-  padding: 0 10px;
-  text-align: center;
-  color: rgb(148, 67, 126);
-}
-
-.navbar a:hover {
-  color: rgb(137, 69, 201);
-}
-
-/* .navlink a {
-  text-decoration: none;
-  color: inherit;
-} */
-
-.navlink.nav {
-  display: flex;
-  padding-bottom: 0.25rem;
-  position: relative;
-  gap: 1em;
-  /* margin: 0 auto; */
   justify-content: center;
+  align-items: center;
+  list-style: none;
+  /* height: 5rem; */
+}
+
+.slider ul li:not(:first-child) {
+  margin-block: 0.3rem;
+  margin-inline: 1rem;
+  padding: 0 5px;
+  list-style: none;
+}
+
+.slider ul li:first-child {
+  /* padding-right: 200px; */
+}
+
+.slider ul li a {
+  text-decoration: none;
+  /* padding: 0 5px; */
+  text-align: center;
+  color: rgb(77, 36, 143);
+  font-size: 1rem;
+}
+
+.slider ul li a:hover {
+  color: rgb(235, 49, 157);
+}
+
+.slider ul li:first-child {
+  margin-right: 2rem;
+}
+
+.menu-icon .menu {
+  display: none;
+  color: white;
+  font-size: 50px;
+  cursor: pointer;
+}
+
+.closed .close {
+  display: none;
+  /* font-size: 30px; */
 }
 
 .navlink::before {
@@ -59,7 +67,7 @@
   bottom: 0;
   width: 0;
   height: 3px;
-  background-color: rgb(179, 89, 156);
+  background-color: rgb(98, 89, 179);
   transition: width 0.25s ease-out;
 }
 
@@ -77,51 +85,49 @@
   color: inherit;
 }
 
-.navbar .adminlog a {
-  color: #c4b8b8;
+.adminlog i {
+  color: rgb(44, 46, 180);
   cursor: default;
 }
 
-.lnightlogo {
+.navbar > .lnightlogo {
   cursor: pointer;
-  height: 5em;
-  position: static;
+  height: 3.5rem;
+  display: flex;
+  justify-content: flex-start;
+  /* position: static; */
 }
 
 .footer {
-  background: var(--clr-nav);
+  background: var(--clr-footer);
   width: 100%;
-  position: sticky;
+  position: absolute;
   top: 100%;
-  margin-top: 2em;
-  padding: 0.6em;
-  display: flex;
-  flex-direction: column;
+  height: 6.5rem;
+  bottom: 0;
+  left: 0;
   align-items: center;
 }
 
 .footer__socials {
   color: var(--clr-socials);
   display: flex;
-  margin: 0 auto;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
   width: 100%;
 }
 
 .footer__icons {
-  margin-left: 0.7em;
   font-size: 2rem;
-  padding-top: 0.5em;
+  padding: 0.4em 0.3em;
 }
 
 .footer__copyright {
-  padding-left: 1em;
   color: rgb(153, 131, 148);
   font-family: var(--ff-secondary);
   font-size: small;
   cursor: default;
+  text-align: center;
 }
 
 .footer__icons a:hover {
@@ -137,15 +143,80 @@
   color: inherit;
 }
 
-@media (max-width: 912px) {
-  .menu {
+@media (max-width: 900px) {
+  .slider {
+    position: fixed;
+    min-width: 100%;
+    height: 55vh;
+    top: -100%;
+    background: linear-gradient(270deg, #c757c7 0%, #2430aa 100%);
+    transition: 0.5s ease;
+  }
+
+  .slider.active {
+    top: 0;
+    transition: 0.5s ease;
+  }
+
+  .slider ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+  }
+
+  /* it's not chatching this always */
+  .slider ul li {
+    margin-block: 1rem;
+  }
+
+  .slider ul li:first-child {
+    padding-right: 0;
+  }
+
+  .slider ul li a {
+    text-decoration: none;
+    padding: 0 10px;
+    text-align: center;
+    color: rgb(77, 36, 143);
+    font-size: large;
+  }
+
+  .slider ul li a:hover {
+    color: rgb(235, 49, 157);
+  }
+
+  .menu-icon .menu {
+    display: block;
+    /* justify-content: flex-start; */
+    color: white;
+    font-size: 50px;
+    cursor: pointer;
+  }
+
+  .closed .close {
+    display: block;
+    font-size: 30px;
+    margin: 0.5rem;
+  }
+
+  .lnightlogo {
+    display: block;
+    margin-left: 3rem;
+    margin-bottom: 0;
+  }
+}
+
+/* @media (max-width: 912px) {
+  .navbar__menu {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 8vh;
+    margin-top: 5em;
     padding-left: 0em;
+    margin-right: 0em;
   }
   .navbar {
     max-width: 100%;
@@ -166,5 +237,5 @@
   .navlink.nav {
     display: inline;
     align-items: center;
-  }
-}
+  } */
+/* } */

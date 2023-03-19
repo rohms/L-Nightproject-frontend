@@ -14,7 +14,7 @@ const Footer = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <i class="fab fa-facebook-square"></i>
+              <i className="fab fa-facebook-square"></i>
             </a>
           </div>
           <div className="footer__icons">
@@ -24,17 +24,17 @@ const Footer = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <i class="fab fa-meetup"></i>
+              <i className="fab fa-meetup"></i>
             </a>
           </div>
           <div className="footer__icons">
             <a
               className="footer__links"
-              href="https://www.instagram.com"
+              href="https://instagram.com/lnightberlin?igshid=YmMyMTA2M2Y="
               target="_blank"
               rel="noreferrer"
             >
-              <i class="fab fa-instagram"></i>
+              <i className="fab fa-instagram"></i>
             </a>
           </div>
         </div>

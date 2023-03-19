@@ -1,7 +1,7 @@
 import React from "react";
 import ReactCalendar from "./ReactCalendar";
 import CalendarDetail from "./CalendarDetail";
-import "./Styles/Style.css";
+import "../Styles/Style.css";
 
 const Calendarmain = () => {
   return (

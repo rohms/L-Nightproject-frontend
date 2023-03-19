@@ -1,26 +1,28 @@
 import React, { useState, useRef } from "react";
-import ReCAPTCHA from "react-google-recaptcha";
-import "./Styles/Style.css";
+import "../Styles/Style.css";
+import FriendlyCaptcha from "./FriendlyCaptcha";
+import { toast } from "react-toastify";
 
 const ContactForm = () => {
-  const recaptchaKey = process.env.REACT_APP_PUBLIC_RECAPTCHA_SITE_KEY;
   const sendMailURL = process.env.REACT_APP_SEND_MAIL;
-
-  const recaptchaRef = useRef();
-  const [recaptchaToken, setRecaptchaToken] = useState("");
-  // const [sent, setSent] = useState(false)
-
+  const [submitButtonEnabled, setSubmitButtonEnabled] = useState(false);
+  const widgetRef = useRef();
   const [mailerState, setMailerState] = useState({
     name: "",
     email: "",
     subject: "",
     message: "",
   });
+  const reset = () => {
+    setSubmitButtonEnabled(false);
+    if (widgetRef.current) {
+      // The type of widgetRef.current is WidgetInstance, see the JS API details here:
+      // https://docs.friendlycaptcha.com/#/widget_api?id=javascript-api
+      widgetRef.current.reset();
+    }
+  };
 
   console.log(mailerState);
-  function onChange(value) {
-    console.log("Captcha value:", value);
-  }
 
   const handleChange = (e) => {
     setMailerState((prevState) => ({
@@ -29,48 +31,48 @@ const ContactForm = () => {
     }));
   };
 
-  const submitEmail = async (e) => {
+  const submitEmail = async (e, resetWidget) => {
     e.preventDefault();
-    if (!recaptchaToken) {
-      alert("You must verify the captcha");
-      return;
-    }
 
     console.log({ mailerState });
-
-    // RECAPTCHA
-    const token = await recaptchaRef.current.getValue();
-    recaptchaRef.current.reset();
 
     const response = await fetch(sendMailURL, {
       method: "POST",
       headers: { "Content-type": "application/json" },
-      body: JSON.stringify({ mailerState }),
-    })
+      body: JSON.stringify({
+        mailerState,
+        frcCaptchaSolution: e.target["frc-captcha-solution"].value,
+      }),
+    });
+    console
+      .log("body", response.body)
       .then((res) => res.json())
-      .catch((err) => console.log(err))
+      .catch((err) => toast.error(err))
       .then(async (res) => {
         const resData = await res;
         console.log(resData);
         if (resData.status === "success") {
-          alert("Message sent");
+          toast.success("Message sent");
         } else if (resData.status === "fail") {
-          alert("Sending message failed");
+          toast.error("Sending message failed");
         }
         setMailerState({
           name: "",
           email: "",
           subject: "",
           message: "",
-          token,
         });
       });
+
+    const result = await response.json();
+    toast.info(`${result.msg} (status ${response.status})`);
+    resetWidget();
   };
 
   return (
     <div className="thewholecontact">
       <div className="form-container">
-        <form class="contact-form" onSubmit={submitEmail}>
+        <form className="contact-form" onSubmit={(e) => submitEmail(e, reset)}>
           <h2>CONTACT</h2>
           <input
             type="text"
@@ -111,17 +113,22 @@ const ContactForm = () => {
             rows="10"
           ></textarea>
 
-          <input type="submit" class="submit" value="Send Message"></input>
-          <div className="recaptchacontainer">
-            <ReCAPTCHA
-              ref={recaptchaRef}
-              sitekey={recaptchaKey}
-              size="normal"
-              onChange={onChange}
-              onChange={(recaptchaToken) => setRecaptchaToken(recaptchaToken)}
-              onExpired={(e) => setRecaptchaToken("")}
-            />
-          </div>
+          <FriendlyCaptcha
+            ref={widgetRef}
+            siteKey="FCMM00A8DEDCGSO8"
+            doneCallback={() => setSubmitButtonEnabled(true)}
+            errorCallback={(err) => {
+              toast.error(`Anti robot widget issue: ${err}`);
+              setSubmitButtonEnabled(true);
+            }}
+          ></FriendlyCaptcha>
+          <button
+            type="submit"
+            className="submit"
+            disabled={submitButtonEnabled ? undefined : "null"}
+          >
+            Send message
+          </button>
         </form>
       </div>
     </div>

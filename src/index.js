@@ -1,24 +1,29 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import * as ReactDOM from "react-dom/client";
 import "./Components/Styles/Index.css";
 import "./Components/Styles/Style.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import { AuthController } from "./Context/AuthContext";
 import { CalendarController } from "./Context/CalendarContext";
+import Toast from "./Components/Alerts/Toast";
 
-ReactDOM.render(
+
+
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <Router>
+      <Toast />
       <CalendarController>
         <AuthController>
           <App />
         </AuthController>
       </CalendarController>
-    </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById("root")
+    </Router>
+  </React.StrictMode>
 );
 
 reportWebVitals();

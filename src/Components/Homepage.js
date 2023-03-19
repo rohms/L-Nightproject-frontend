@@ -1,6 +1,4 @@
 import React from "react";
-import lnightb from "../Images/lnightber3.jpg";
-import lnightglow from "../Images/Lnightglow.png";
 import lnightdp from "../Images/lnightdp.png";
 import neonline from "../Images/neon-line.png";
 import "./Styles/Style.css";
@@ -22,7 +20,7 @@ const Homepage = () => {
           <img className="neonline" src={neonline} alt="neon line" />
         </span>
         <h2 className="headergroup__h2">
-          The group for queer and lesbian women in Berlin
+          The group for LGBTQIA women* in Berlin
         </h2>
       </div>
     </div>
