@@ -113,7 +113,7 @@ const ContactForm = () => {
 
           <FriendlyCaptcha
             ref={widgetRef}
-            siteKey="FCMM00A8DEDCGSO8"
+            siteKey={process.env.REACT_APP_FRIENDLY_CAPTCHA_SITEKEY}
             doneCallback={() => setSubmitButtonEnabled(true)}
             errorCallback={(err) => {
               toast.error(`Anti robot widget issue: ${err}`);
