@@ -1,20 +1,17 @@
 .wholesigninpage {
   width: 100%;
   height: 100%;
+  /* position: relative; */
 }
 
 .popupcontainer {
   font-size: 15px;
-  top: 40%;
-  left: 45%;
+  top: 50%;
+  left: 50%;
   position: absolute;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-wrap: wrap;
+  transform: translate(-50%, -50%);
 }
-
 
 .popupcontainer h1 {
   color: rgb(79, 126, 119);
@@ -35,33 +32,18 @@
 
 .button:hover {
   background: rgb(73, 198, 207);
-  color: rgb(88, 108, 173);
+  color: rgb(198, 200, 207);
   cursor: pointer;
 }
 
-.login {
+.login--modal {
   width: 22.5rem;
   padding: 8% 0 0;
   margin: auto;
-  /* display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  height: 500px;
-  width: 400px;
-  background: rgb(127, 143, 150);
-  padding: 20px;
-  border-radius: 5px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
 }
 
-.form {
-  position: relative;
-  z-index: 1;
-  background: var(--clr-background);
+.modal-content {
+  background-color: #d1cfcf;
   border-radius: 0.625rem;
   max-width: 22.5rem;
   margin: 0 auto 6.25rem;
@@ -69,7 +51,7 @@
   text-align: center;
 }
 
-.form span {
+.login--modal span {
   font-size: 2.5rem;
   color: rgb(134, 184, 241);
   margin-bottom: 1.5625rem;
@@ -77,19 +59,15 @@
   user-select: none;
 }
 
-.form p.error {
+.login--modal p.error {
   margin: 0 0 0.625rem 0.2rem;
   text-align: left;
   font-size: 0.813rem;
   color: #cc3300;
+  position: fixed;
 }
 
-.login a {
-  /* margin-top: 10px;
-  width: 150px; */
-}
-
-.form input {
+.modal-content input {
   outline: 0;
   background: #f2f2f2;
   width: 100%;
@@ -101,24 +79,18 @@
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
   cursor: pointer;
-
-
-  /* display: block;
-  width: 15rem;
-  height: 2rem;
-  border: 1px solid gray;
-  border-radius: 7px;
-  padding: 0.6em;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
 }
 
-.login .button {
+.login--modal button {
   padding: 10px 40px;
   margin-top: 3rem;
 }
 
-.astrocontainer {
-  font-size: 45px;
+.closeicon {
+  position: absolute;
+  top: 14.5%;
+  right: 39%;
+  cursor: pointer;
 }
 
 .close {

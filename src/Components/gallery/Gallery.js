@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import GalleryPics from "./Gallerypics";
 import "../Styles/Gallery.css";
-import CloseIcon from "@material-ui/icons/Close";
+import { default as CloseIcon } from "@mui/icons-material/Close";
 import ImageUpload from "./ImageUpload";
 import useAuthContext from "../../hooks/useAuthContext";
 import "../Styles/Style.css";

@@ -3,13 +3,14 @@ import { NavLink, Navigate, useNavigate } from "react-router-dom";
 import "./Styles/Index.css";
 import useAuthContext from "../hooks/useAuthContext";
 import { Button } from "@mui/material";
-import { Avatar } from "@material-ui/core";
+import { Avatar } from "@mui/joy/Avatar";
 import lnights from "../Images/lnightsmall.png";
 import lnightexs from "../Images/lnightexs.png";
 
 import "./Styles/Style.css";
 import classnames from "classnames";
-import { MenuOutlined, Close } from "@material-ui/icons";
+import { default as CloseIcon } from "@mui/icons-material/Close";
+import { default as MenuIcon } from "@mui/icons-material/Menu";
 
 const Navbar = (props) => {
   const { isLogged, setIsLogged, logout, user } = useAuthContext();
@@ -22,22 +23,20 @@ const Navbar = (props) => {
 
   return (
     <div className="navbar">
+      <NavLink className="lnightlogo" to="/">
+        <img
+          src={active ? lnightexs : lnights}
+          alt="L-Night Berlin Group"
+          onClick={() => setActive(false)}
+        />
+      </NavLink>
       <div className="menu-icon">
-        <MenuOutlined className="menu" onClick={toggleMenu} />
+        <MenuIcon className="menu" onClick={toggleMenu} />
       </div>
       <nav className={active ? "slider active" : "slider"}>
         <ul>
-          <li>
-            <NavLink className="lnightlogo" to="/">
-              <img
-                src={active ? lnightexs : lnights}
-                alt="L-Night Berlin Group"
-                onClick={() => setActive(false)}
-              />
-            </NavLink>
-          </li>
           <div className="closed">
-            <Close className="close" onClick={toggleMenu} />
+            <CloseIcon className="close" onClick={toggleMenu} />
           </div>
           <li>
             <NavLink
@@ -104,6 +103,7 @@ const Navbar = (props) => {
             Logout
           </Button>
         ) : null}
+        <div></div>
       </nav>
     </div>
   );

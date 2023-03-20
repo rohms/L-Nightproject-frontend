@@ -1,10 +1,8 @@
 import { Avatar } from "@mui/material";
 import rhm1 from "../../Images/rhm1.jpg";
-import rk from "../../Images/rk.jpg";
 import placeh from "../../Images/placeholder.jpg";
 import dmks from "../../Images/dmks.jpg";
 import jt from "../../Images/jt.jpg";
-import an from "../../Images/an.jpg";
 import bri from "../../Images/brid.jpg";
 
 export const Hosts = [

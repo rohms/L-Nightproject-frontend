@@ -1,33 +1,34 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import "../Styles/Popup.css";
 import AdminModal from "./AdminModal";
-import Modal from "react-modal";
 import "../Styles/Style.css";
+import Modal from "@mui/joy/Modal";
 
-Modal.setAppElement("#root");
 const AdminPage = () => {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  const keyPress = useCallback(
+    (e) => {
+      if (e.key === "Escape" && open) {
+        setOpen(false);
+      }
+    },
+    [open, setOpen]
+  );
+
+  useEffect(() => {
+    document.addEventListener("keydown", keyPress);
+    return () => document.removeEventListener("keydown", keyPress);
+  }, [keyPress]);
+
   return (
     <div className="wholesigninpage">
       <div className="popupcontainer">
-        <button className="button" onClick={() => setModalIsOpen(true)}>
+        <button className="button" onClick={() => setOpen(true)}>
           Go to Login
         </button>
-        <Modal
-          className="mymodal"
-          isOpen={modalIsOpen}
-          shouldCloseOnOverlayClick={true}
-          onClose={() => setModalIsOpen(false)}
-          onRequestClose={() => setModalIsOpen(false)}
-          style={{
-            overlay: { backgroundColor: "grey" },
-            content: { color: "black" },
-          }}
-        >
-          <div className="close" onClick={() => setModalIsOpen(false)}>
-            <i className="far fa-times-circle"></i>
-          </div>
-          <AdminModal />
+        <Modal open={open} onClose={() => setOpen(false)}>
+          <AdminModal setOpen={setOpen} />
         </Modal>
       </div>
     </div>

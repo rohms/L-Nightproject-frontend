@@ -2,6 +2,7 @@
   width: 100%;
   display: flex;
   align-items: center;
+  /* justify-content: space-between; */
   top: 0;
   background: linear-gradient(270deg, #c757c7 0%, #6870cf 100%);
   text-decoration: none;
@@ -12,29 +13,28 @@
   height: 5rem;
 }
 
-/* this is still somehow ffecting the mobile version of menu */
+nav {
+  width: 100%;
+}
+
 .slider ul {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   list-style: none;
-  /* height: 5rem; */
+  width: calc(100% - 156px);
 }
 
 .slider ul li:not(:first-child) {
+  display: flex;
   margin-block: 0.3rem;
-  margin-inline: 1rem;
+  margin-inline: 0.5rem;
   padding: 0 5px;
   list-style: none;
 }
 
-.slider ul li:first-child {
-  /* padding-right: 200px; */
-}
-
 .slider ul li a {
   text-decoration: none;
-  /* padding: 0 5px; */
   text-align: center;
   color: rgb(77, 36, 143);
   font-size: 1rem;
@@ -57,7 +57,6 @@
 
 .closed .close {
   display: none;
-  /* font-size: 30px; */
 }
 
 .navlink::before {
@@ -92,10 +91,9 @@
 
 .navbar > .lnightlogo {
   cursor: pointer;
-  height: 3.5rem;
+  height: 4rem;
   display: flex;
-  justify-content: flex-start;
-  /* position: static; */
+  left: 0;
 }
 
 .footer {
@@ -144,13 +142,18 @@
 }
 
 @media (max-width: 900px) {
+  .navbar {
+    justify-content: space-between;
+  }
+
   .slider {
     position: fixed;
     min-width: 100%;
-    height: 55vh;
+    /* height: 45vh; */
     top: -100%;
     background: linear-gradient(270deg, #c757c7 0%, #2430aa 100%);
     transition: 0.5s ease;
+    z-index: 10;
   }
 
   .slider.active {
@@ -159,19 +162,16 @@
   }
 
   .slider ul {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     list-style: none;
+    margin-top: 2rem;
   }
 
-  /* it's not chatching this always */
-  .slider ul li {
-    margin-block: 1rem;
-  }
-
-  .slider ul li:first-child {
-    padding-right: 0;
+  .slider ul li:last-child {
+    padding-bottom: 1.5rem;
   }
 
   .slider ul li a {
@@ -188,7 +188,6 @@
 
   .menu-icon .menu {
     display: block;
-    /* justify-content: flex-start; */
     color: white;
     font-size: 50px;
     cursor: pointer;
@@ -202,7 +201,7 @@
 
   .lnightlogo {
     display: block;
-    margin-left: 3rem;
+    /* margin-left: 3rem; */
     margin-bottom: 0;
   }
 }

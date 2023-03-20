@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import { gapi } from "gapi-script";
 
 export const getGoogleCalendarEvents = async () => {
@@ -8,7 +7,7 @@ export const getGoogleCalendarEvents = async () => {
   function initiate() {
     gapi.client
       .init({
-        apiKey: "AIzaSyCj98ERCBSNKsFRzlBnuLpqh7KvbdIRzhE",
+        apiKey: apikey,
       })
 
       .then(function () {

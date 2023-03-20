@@ -31,14 +31,14 @@ const ImageUpload = () => {
       .then((res) => {
         setUploadedFiles(res.data.data);
         console.log(res);
-        if (res.data == "Wrong filetype") alert("Not a valid image format");
+        if (res.data === "Wrong filetype") alert("Not a valid image format");
         else {
           alert("File was uploaded");
         }
       })
       .catch((err) => {
         setUploadError(err.message);
-        toast.error(`There was an error with picture upload: ${err.message}`);
+        toast.error(`There was an error with picture upload: ${uploadError}`);
         console.log(err);
       });
   };
