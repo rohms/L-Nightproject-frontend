@@ -16,9 +16,9 @@ export const CalendarController = (props) => {
   const getEvents = async () => {
     await axios
       .get(eventsAPI)
-      // will be applied later when FB API available .get("https://graph.facebook.com/v12.0/322950981168488/events",  { headers: {"accessToken" : ""}, AppID: })
-
+      .catch((error) => console.log(error.message))
       .then((response) => setEvents(response.data));
+
     setLoading(true);
   };
 

@@ -1,6 +1,6 @@
 import React from "react";
 import PeopleHosts from "./PeopleHosts.js";
-import "./Styles/Style.css";
+import "../Styles/Style.css";
 
 const PeopleMain = () => {
   return (

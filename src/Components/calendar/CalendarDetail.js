@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
-import { CalendarContext } from "../Context/CalendarContext";
-import unicorn from "../Images/unicorn3even.png";
-import "./Styles/Style.css";
+import { CalendarContext } from "../../Context/CalendarContext";
+import unicorn from "../../Images/unicorn3even.png";
+import "../Styles/Style.css";
+import { getGoogleCalendarEvents } from "./GoogleCalendar";
 
 const CalendarDetail = (props) => {
   const { events, date } = useContext(CalendarContext);
@@ -9,12 +10,13 @@ const CalendarDetail = (props) => {
     (event) => new Date(event.start_time).toDateString() === date.toDateString()
   );
   console.log(currentEvent);
+  getGoogleCalendarEvents();
   return (
     <div className="calendardetailbox">
       {currentEvent.length > 0 ? (
         currentEvent.map((event) => {
           return (
-            <div>
+            <div className="calendar--eventinfo">
               <p>
                 <b>{event.eventname}</b>
               </p>
@@ -24,11 +26,8 @@ const CalendarDetail = (props) => {
               <p>{event.address}</p>
               <h4>What we do:</h4>
               <p>{event.description}</p>
-              <p>
-                <b>
-                  For exact time and more info please join the FB or Meetup
-                  groups.
-                </b>
+              <p className="eventinfo-diclaimer">
+                <b>For more info please join the FB or Meetup groups.</b>
               </p>
             </div>
           );

@@ -4,15 +4,15 @@ import "../Components/Styles/Style.css";
 const About = () => {
   return (
     <div className="aboutmaincontainer">
-      <div>
-        <h2>What is the L-Night group?</h2>
-      </div>
       <div className="textcontainer">
+        <div>
+          <h2>What is the L-Night group?</h2>
+        </div>
         <p>
           The L-Night Berlin group was founded in April 2013. The original
           organizers have changed but the group is going strong. We could safely
           say that the L-Night is one of the most regular meetings for English
-          speaking queer and lesbian women in Berlin. Lesbian visibility is
+          speaking queer and lesbian women / LGBTQIA* in Berlin. Queer visibility is
           important and that is also why this group is so precious in many ways.
           L-Night has been bringing people together already almost for a decade!
         </p>
