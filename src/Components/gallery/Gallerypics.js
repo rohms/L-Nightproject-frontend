@@ -17,77 +17,77 @@ import lnightbb from "../../Images/Gallerypics/lnightbb.jpg";
 const GalleryPics = [
   {
     id: 1,
-    imgSrc: lnightbb,
+    src: lnightbb,
     title: "L-Night at Dykemarch 2021",
   },
   {
     id: 2,
-    imgSrc: Copper,
+    src: Copper,
     title: "Copper coloured leaves",
   },
   {
     id: 3,
-    imgSrc: Coronet,
+    src: Coronet,
     title: "Picture of a Coronet",
   },
   {
     id: 4,
-    imgSrc: Flowers,
+    src: Flowers,
     title: "Flowers",
   },
   {
     id: 5,
-    imgSrc: Lake,
+    src: Lake,
     title: "A lake",
   },
   {
     id: 6,
-    imgSrc: Lighthouse,
+    src: Lighthouse,
     title: "Lighthouse",
   },
   {
     id: 7,
-    imgSrc: MonasteryGarden,
+    src: MonasteryGarden,
     title: "Monastery Garden",
   },
   {
     id: 8,
-    imgSrc: Mushroom,
+    src: Mushroom,
     title: "Mushrooms growing",
   },
   {
     id: 9,
-    imgSrc: Sticks,
+    src: Sticks,
     title: "Sticks",
   },
   {
     id: 10,
-    imgSrc: Drops,
+    src: Drops,
     title: "Waterdrops",
   },
   {
     id: 11,
-    imgSrc: Seed,
+    src: Seed,
     title: "Seed",
   },
   {
     id: 12,
-    imgSrc: Web,
+    src: Web,
     title: "Spiderweb",
   },
   {
     id: 13,
-    imgSrc: Motion,
+    src: Motion,
     title: "Stopmotion",
   },
   {
     id: 14,
-    imgSrc: WaterDrops,
+    src: WaterDrops,
     title: "Waterdrops",
   },
   {
     id: 15,
-    imgSrc: Waterfall,
+    src: Waterfall,
     title: "Waterfall",
   },
 ];
