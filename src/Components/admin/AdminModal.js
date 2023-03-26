@@ -55,7 +55,7 @@ const AdminModal = ({ open, setOpen }) => {
     <div className="login--modal">
       <div className="modal-content">
         <CloseIcon onClick={() => setOpen(false)} className="closeicon" />
-        <form onSubmit={handleSubmit} noValidate>
+        <form className="admin-login" onSubmit={handleSubmit} noValidate>
           <span>Login</span>
           <input
             className="form-control inp_text"
