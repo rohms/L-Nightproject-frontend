@@ -3,50 +3,45 @@ import { Gallery } from "react-grid-gallery";
 import useAuthContext from "../../hooks/useAuthContext";
 import ImageUpload from "./ImageUpload";
 import { useState, useEffect } from "react";
-import Lightbox from "react-image-lightbox";
-import "react-image-lightbox/style.css";
+import FsLightbox from "fslightbox-react";
 
 const GridGallery = () => {
   const { isLogged, user } = useAuthContext();
-  const [index, setIndex] = useState(-1);
+  const [imageIndex, setImageIndex] = useState(0);
+  const [toggler, setToggler] = useState(false);
   const [key, setKey] = useState(false);
 
-  const currentImage = GalleryPics[index];
-  const nextIndex = (index + 1) % GalleryPics.length;
-  const nextImage = GalleryPics[nextIndex] || currentImage;
-  const prevIndex = (index + GalleryPics.length - 1) % GalleryPics.length;
-  const prevImage = GalleryPics[prevIndex] || currentImage;
+  const galleryPicSources = GalleryPics.map((image) => image.src);
 
-  const handleClick = (index, item) => setIndex(index);
-  const handleClose = () => setIndex(-1);
-  const handleMovePrev = () => setIndex(prevIndex);
-  const handleMoveNext = () => setIndex(nextIndex);
+  const handleClick = (index, item) => {
+    setImageIndex(index);
+    setToggler(!toggler);
+  };
+
+  const galleryImages = GalleryPics.map((image) => ({
+    src: image.src,
+    thumbnail: image.src,
+    thumbnailWidth: 320,
+    thumbnailHeight: 212,
+    caption: image.title,
+  }));
 
   useEffect(() => {
     setTimeout(() => setKey(key + 1));
-    const img = new Image();
-    img.src = GalleryPics[0].src;
-  }, [setKey, key]);
+  }, []);
 
   return (
     <>
       <h2>Gallery</h2>
       <div className="Gallerypicscontainer">
-        <Gallery images={GalleryPics} onClick={handleClick} />
-        {!!currentImage && (
-          <Lightbox
-            mainSrc={currentImage.src}
-            imageTitle={currentImage.title}
-            mainSrcThumbnail={currentImage.src}
-            nextSrc={nextImage.src}
-            nextSrcThumbnail={nextImage.src}
-            prevSrc={prevImage.src}
-            prevSrcThumbnail={prevImage.src}
-            onCloseRequest={handleClose}
-            onMovePrevRequest={handleMovePrev}
-            onMoveNextRequest={handleMoveNext}
-          />
-        )}
+        <Gallery images={galleryImages} onClick={handleClick} />
+        <FsLightbox
+          toggler={toggler}
+          sources={galleryPicSources}
+          key={key}
+          slide={imageIndex + 1}
+          type="image"
+        />
       </div>
       {isLogged ? <ImageUpload /> : null}
     </>
