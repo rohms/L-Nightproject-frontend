@@ -2,9 +2,11 @@ import React, { useState, useRef } from "react";
 import "../Styles/Style.css";
 import FriendlyCaptcha from "./FriendlyCaptcha";
 import { toast } from "react-toastify";
+import emailjs from "@emailjs/browser";
+
+emailjs.init("ykmQT0YdejnTpSxVS");
 
 const ContactForm = () => {
-  const sendMailURL = process.env.REACT_APP_SEND_MAIL;
   const [submitButtonEnabled, setSubmitButtonEnabled] = useState(false);
   const widgetRef = useRef();
   const [mailerState, setMailerState] = useState({
@@ -32,39 +34,41 @@ const ContactForm = () => {
   const submitEmail = async (e, resetWidget) => {
     e.preventDefault();
 
-    console.log({ mailerState });
+    // const frcCaptchaSolution = e.target["frc-captcha-solution"].value;
+    // captcha: frcCaptchaSolution,
 
-    const response = await fetch(sendMailURL, {
-      method: "POST",
-      headers: { "Content-type": "application/json" },
-      body: JSON.stringify({
-        mailerState,
-        frcCaptchaSolution: e.target["frc-captcha-solution"].value,
-      }),
-    });
-    console
-      .log("body", response.body)
-      .then((res) => res.json())
-      .catch((err) => toast.error(err))
-      .then(async (res) => {
-        const resData = await res;
-        console.log(resData);
-        if (resData.status === "success") {
-          toast.success("Message sent");
-        } else if (resData.status === "fail") {
-          toast.error("Sending message failed");
+    if (
+      mailerState.name === "" ||
+      mailerState.email === "" ||
+      mailerState.subject === "" ||
+      mailerState.message === ""
+    ) {
+      toast.error("Please fill in all the fields");
+      return;
+    }
+    try {
+      await emailjs.send(
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: mailerState.name,
+          from_email: mailerState.email,
+          subject: mailerState.subject,
+          message_html: mailerState.message,
         }
-        setMailerState({
-          name: "",
-          email: "",
-          subject: "",
-          message: "",
-        });
-      });
+      );
 
-    const result = await response.json();
-    toast.info(`${result.msg} (status ${response.status})`);
-    resetWidget();
+      setMailerState({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+      resetWidget();
+      toast.success("Email was sent!");
+    } catch (err) {
+      toast.error(err.message);
+    }
   };
 
   return (
@@ -122,7 +126,7 @@ const ContactForm = () => {
           ></FriendlyCaptcha>
           <button
             type="submit"
-            className="submit"
+            className="submit-button"
             disabled={submitButtonEnabled ? undefined : "null"}
           >
             Send message

@@ -18,10 +18,16 @@
   margin-bottom: 40px;
 }
 
-.button {
+.admin-login {
+  height: 20rem;
+}
+
+.login--modal button,
+.admin-login-button {
   background: rgb(134, 184, 241);
   color: rgb(67, 83, 81);
-  padding: 10px 10px;
+  margin-top: 3rem;
+  padding: 0.8rem 1.5rem;
   font-weight: bolder;
   text-transform: uppercase;
   text-decoration: none;
@@ -30,7 +36,8 @@
   border: none;
 }
 
-.button:hover {
+.admin-login-button:hover,
+.login--modal button:hover {
   background: rgb(73, 198, 207);
   color: rgb(198, 200, 207);
   cursor: pointer;
@@ -64,10 +71,14 @@
   text-align: left;
   font-size: 0.813rem;
   color: #cc3300;
-  position: fixed;
+  /* position: fixed; */
 }
 
-.modal-content input {
+.inp_text {
+  margin-bottom: 0.4rem;
+}
+
+.admin-login input {
   outline: 0;
   background: #f2f2f2;
   width: 100%;
@@ -81,15 +92,10 @@
   cursor: pointer;
 }
 
-.login--modal button {
-  padding: 10px 40px;
-  margin-top: 3rem;
-}
-
 .closeicon {
   position: absolute;
-  top: 14.5%;
-  right: 39%;
+  top: 15.7%;
+  right: 39.8%;
   cursor: pointer;
 }
 

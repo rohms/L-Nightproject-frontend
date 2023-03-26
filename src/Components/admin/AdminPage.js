@@ -24,7 +24,7 @@ const AdminPage = () => {
   return (
     <div className="wholesigninpage">
       <div className="popupcontainer">
-        <button className="button" onClick={() => setOpen(true)}>
+        <button className="admin-login-button" onClick={() => setOpen(true)}>
           Go to Login
         </button>
         <Modal open={open} onClose={() => setOpen(false)}>
