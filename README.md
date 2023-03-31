@@ -10,7 +10,7 @@ For this full-stack app I used the following stack:
 
 For the front-end: 
 
-ReactJS and MUI, for the email contact form Nodemailer integrated with Gmail and friendly capctha for the contact form.
+ReactJS and MUI, for the email contact form EmailJS with friendly capctha.
 For the Calendar I used React Calendar, the events are stored at the moment in MongoDB but eventually the events would come from a google calendar.
 Using Formik and Yup for form validation. React toastify for beautiful toasts. Using axios for fetching data. React createcontext for auth and calendar.
 Using Lightbox for the image gallery together with react-grid-gallery.
