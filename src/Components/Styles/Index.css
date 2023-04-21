@@ -4,7 +4,12 @@
   align-items: center;
   /* justify-content: space-between; */
   top: 0;
-  background: linear-gradient(270deg, #c757c7 0%, #6870cf 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(81, 27, 219, 1) 0%,
+    rgba(170, 18, 172, 1) 37%,
+    rgba(255, 0, 164, 1) 100%
+  );
   text-decoration: none;
   letter-spacing: 0.5px;
   margin-bottom: 2em;
@@ -36,12 +41,26 @@ nav {
 .slider ul li a {
   text-decoration: none;
   text-align: center;
-  color: rgb(77, 36, 143);
+  color: rgb(244, 245, 245);
   font-size: 1rem;
+  overflow: hidden;
+  background: linear-gradient(
+    to left,
+    midnightblue,
+    midnightblue 50%,
+    rgb(65, 225, 65) 50%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+  transition: background-position 275ms ease;
 }
 
 .slider ul li a:hover {
-  color: rgb(235, 49, 157);
+  color: #59f780;
+  background-position: 0 100%;
 }
 
 .slider ul li:first-child {
@@ -57,6 +76,30 @@ nav {
 
 .closed .close {
   display: none;
+}
+
+.navlink {
+  display: inline-block;
+  position: relative;
+  color: #59f780;
+}
+
+.navlink::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #59f780;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.navlink:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 .navlink::before {
@@ -76,7 +119,7 @@ nav {
 
 .navbar a:active,
 .navbar a.active {
-  color: rgb(29, 29, 233);
+  color: rgb(83, 255, 77);
 }
 
 .navbar a.visited {
@@ -178,12 +221,8 @@ nav {
     text-decoration: none;
     padding: 0 10px;
     text-align: center;
-    color: rgb(77, 36, 143);
+    color: rgb(205, 187, 235);
     font-size: large;
-  }
-
-  .slider ul li a:hover {
-    color: rgb(235, 49, 157);
   }
 
   .menu-icon .menu {
