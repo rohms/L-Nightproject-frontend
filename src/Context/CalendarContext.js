@@ -10,16 +10,17 @@ export const CalendarController = (props) => {
   const [date, setDate] = useState(new Date());
 
   useEffect(() => {
+    setLoading(true);
     getEvents();
   }, []);
 
   const getEvents = async () => {
     await axios
       .get(eventsAPI)
+
       .catch((error) => console.log(error.message))
       .then((response) => setEvents(response.data));
-
-    setLoading(true);
+    setLoading(false);
   };
 
   const value = {

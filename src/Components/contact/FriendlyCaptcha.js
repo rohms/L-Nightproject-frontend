@@ -1,6 +1,7 @@
 import { useEffect, useRef, forwardRef } from "react";
 import { WidgetInstance } from "friendly-challenge";
 import "../Styles/Style.css";
+import { toast } from "react-toastify";
 
 const FriendlyCaptcha = forwardRef(
   ({ sitekey, doneCallback, errorCallback, startMode }, widget) => {
@@ -11,7 +12,7 @@ const FriendlyCaptcha = forwardRef(
 
     const _errorCallback = (err) => {
       if (errorCallback) errorCallback(err);
-      console.log(
+      toast.error(
         `There was an error when trying to solve the FriendlyCaptcha: ${err}`
       );
     };

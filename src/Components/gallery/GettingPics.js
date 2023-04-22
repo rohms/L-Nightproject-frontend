@@ -11,6 +11,8 @@ export const GettingPics = () => {
   const [pictures, setPictures] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const controller = new AbortController();
+  const { signal } = controller;
 
   useEffect(() => {
     const getPics = async () => {
@@ -19,6 +21,7 @@ export const GettingPics = () => {
           headers: {
             "Content-Type": "image/png" || "image/jpg" || "image/jpeg",
           },
+          signal,
         });
         setPictures(response.pictures);
         setError(null);
@@ -30,6 +33,10 @@ export const GettingPics = () => {
       }
     };
     getPics();
+
+    return () => {
+      controller.abort();
+    };
   }, []);
 
   return (

@@ -3,13 +3,11 @@ import rhm1 from "../../Images/rhm1.jpg";
 import placeh from "../../Images/placeholder.jpg";
 import dmks from "../../Images/dmks.jpg";
 import jt from "../../Images/jt.jpg";
-import bri from "../../Images/brid.jpg";
 
 export const Hosts = [
   { id: 1, name: "Roosa", imgSrc: rhm1 },
   { id: 3, name: "Justine", imgSrc: jt },
   { id: 4, name: "Dominika", imgSrc: dmks },
-  { id: 5, name: "Bridie", imgSrc: bri },
   { id: 7, name: "Evelyn", imgSrc: placeh },
 ];
 
