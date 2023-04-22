@@ -11,7 +11,7 @@ const ReactCalendar = () => {
     setDate(date);
   };
 
-  if (loading) return <div>Loading...</div>;
+  // if (loading) return <div>Loading...</div>;
 
   function tileClassName({ date, view }) {
     if (
