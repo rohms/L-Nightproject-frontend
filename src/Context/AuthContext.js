@@ -23,8 +23,8 @@ export const AuthController = (props) => {
     };
   }, []);
 
-  console.log(isLogged);
-  console.log(setUser);
+  // console.log(isLogged);
+  // console.log(setUser);
 
   const getUserWithToken = () => {
     axios
