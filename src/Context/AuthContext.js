@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export const AuthContext = createContext();
 const adminURL = process.env.REACT_APP_ADMINUSERS;
@@ -11,8 +12,15 @@ export const AuthController = (props) => {
   const [user, setUser] = useState();
   const [isLogged, setIsLogged] = useState(false);
   let navigate = useNavigate();
+  const controller = new AbortController();
+  const { signal } = controller;
+
   useEffect(() => {
     if (localStorage.getItem("token")) getUserWithToken();
+
+    return () => {
+      controller.abort();
+    };
   }, []);
 
   console.log(isLogged);
@@ -25,12 +33,17 @@ export const AuthController = (props) => {
           "auth-token": localStorage.getItem("token"),
           "Access-Control-Allow-Origin": true,
         },
+        signal,
       })
       .then((res) => {
         setUser(res.data.user);
         setIsLogged(true);
       })
-      .catch((err) => console.log("err", err));
+      .catch((error) => {
+        if (error.name === "AbortError") {
+          toast.error("Request aborted");
+        }
+      });
   };
 
   const login = (loginData) => {

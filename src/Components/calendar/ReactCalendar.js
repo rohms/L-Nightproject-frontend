@@ -6,10 +6,12 @@ import "../Styles/Style.css";
 
 const ReactCalendar = () => {
   const { events, loading, date, setDate } = useContext(CalendarContext);
-
+  console.log("events", events);
   const onChange = (date) => {
     setDate(date);
   };
+
+  if (loading) return <div>Loading...</div>;
 
   function tileClassName({ date, view }) {
     if (

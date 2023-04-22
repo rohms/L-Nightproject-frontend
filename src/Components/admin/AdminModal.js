@@ -8,7 +8,7 @@ import * as Yup from "yup";
 import { toast } from "react-toastify";
 import { default as CloseIcon } from "@mui/icons-material/Close";
 
-const AdminModal = ({ open, setOpen }) => {
+const AdminModal = ({ setOpen }) => {
   const { login } = useContext(AuthContext);
   const [submitting, setSubmitting] = useState(false);
 
@@ -24,9 +24,6 @@ const AdminModal = ({ open, setOpen }) => {
   });
 
   const handleSubmit = (e) => {
-    const toastError = toast.error(
-      `There was an issue while logging in:  ${formik.errors.email} ${formik.errors.password}`
-    );
     e.preventDefault();
     login({
       email: formik.values.email,
@@ -34,9 +31,14 @@ const AdminModal = ({ open, setOpen }) => {
       validationSchema: { validateSchema },
       // need to check backend for the login part, possibly the migration from heroku
     });
-    if (formik.errors.email || formik.errors.password) {
-      toastError();
+    if (formik.errors.email) {
+      toast.error("Invalid email address");
       return;
+    } else if (formik.errors.password) {
+      toast.error("Password must be at least 5 characters");
+      return;
+    } else {
+      toast.success("Successfully logged in");
     }
     navigate("/");
   };
@@ -72,6 +74,7 @@ const AdminModal = ({ open, setOpen }) => {
           <input
             className="form-control"
             type="password"
+            autocomplete="on"
             onChange={formik.handleChange}
             value={formik.values.password}
             name="password"

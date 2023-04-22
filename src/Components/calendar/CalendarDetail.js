@@ -9,26 +9,32 @@ const CalendarDetail = (props) => {
   const currentEvent = events.filter(
     (event) => new Date(event.start_time).toDateString() === date.toDateString()
   );
+
   console.log(currentEvent);
   getGoogleCalendarEvents();
   return (
-    <div className="calendardetailbox">
+    <div className="calendar-detailbox">
       {currentEvent.length > 0 ? (
         currentEvent.map((event) => {
           return (
             <div className="calendar--eventinfo">
               <p>
-                <b>{event.eventname}</b>
+                <b>
+                  <h3>{event.eventname}</h3>
+                </b>
               </p>
-              <h4>Location:</h4>
-              <p>{event.location}</p>
-              <h4>Where:</h4>
-              <p>{event.address}</p>
-              <h4>What we do:</h4>
-              <p>{event.description}</p>
-              <p className="eventinfo-diclaimer">
-                <b>For more info please join the FB or Meetup groups.</b>
-              </p>
+              <div className="calendar-eventinfo__details">
+                <h4>Location:</h4>
+                <p>{event.location}</p>
+                <h4>What we do:</h4>
+                <p>{event.description}</p>
+                <p className="eventinfo-diclaimer">
+                  <b>
+                    For more info please join the FB or Meetup groups. <br />{" "}
+                    See the links in the footer. ⬇
+                  </b>
+                </p>
+              </div>
             </div>
           );
         })

@@ -65,6 +65,7 @@ body {
   overflow: auto;
   line-height: 1.6;
   margin-bottom: 110px;
+  overflow-y: scroll;
 }
 
 /* Homepage section */
@@ -182,12 +183,25 @@ p {
   justify-content: space-evenly;
   flex-direction: row;
 }
-.calendardetailbox {
+.calendar-detailbox {
   padding: 5px 15px;
   min-width: 300px;
   max-width: 40%;
   margin: 0 auto;
   max-height: fit-content;
+}
+
+.calendar--eventinfo {
+  padding: 1em 0.5em;
+  display: grid;
+  background: rgb(215, 106, 195);
+  background: radial-gradient(
+    circle,
+    rgba(215, 106, 195, 1) 0%,
+    rgba(89, 103, 203, 1) 100%
+  );
+  border-radius: 1rem;
+  box-shadow: 10px 10px 15px -7px rgb(207, 224, 109);
 }
 
 .calendar--eventinfo > p,
