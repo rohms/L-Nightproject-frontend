@@ -6,7 +6,7 @@ import "../Styles/Style.css";
 
 const ReactCalendar = () => {
   const { events, loading, date, setDate } = useContext(CalendarContext);
-  console.log("events", events);
+  // console.log("events", events);
   const onChange = (date) => {
     setDate(date);
   };

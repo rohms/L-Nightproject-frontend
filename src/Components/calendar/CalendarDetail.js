@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { CalendarContext } from "../../Context/CalendarContext";
 import unicorn from "../../Images/unicorn3even.png";
 import "../Styles/Style.css";
-import { getGoogleCalendarEvents } from "./GoogleCalendar";
+// import { getGoogleCalendarEvents } from "./GoogleCalendar";
 
 const CalendarDetail = (props) => {
   const { events, date } = useContext(CalendarContext);
@@ -10,19 +10,19 @@ const CalendarDetail = (props) => {
     (event) => new Date(event.start_time).toDateString() === date.toDateString()
   );
 
-  console.log(currentEvent);
-  getGoogleCalendarEvents();
+  // console.log(currentEvent);
+  // console.log(events);
+  // getGoogleCalendarEvents();
   return (
     <div className="calendar-detailbox">
       {currentEvent.length > 0 ? (
         currentEvent.map((event) => {
           return (
-            <div className="calendar--eventinfo">
-              <p>
-                <b>
-                  <h3>{event.eventname}</h3>
-                </b>
-              </p>
+            <div className="calendar--eventinfo" key={event._id}>
+              <b>
+                <h3>{event.eventname}</h3>
+              </b>
+
               <div className="calendar-eventinfo__details">
                 <h4>Location:</h4>
                 <p>{event.location}</p>
