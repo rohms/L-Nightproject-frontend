@@ -3,18 +3,20 @@ import "../Styles/Style.css";
 import FriendlyCaptcha from "./FriendlyCaptcha";
 import { toast } from "react-toastify";
 import emailjs from "@emailjs/browser";
+import { usePersistedState } from "../../hooks/usePersistedState";
 
 emailjs.init("ykmQT0YdejnTpSxVS");
 
 const ContactForm = () => {
   const [submitButtonEnabled, setSubmitButtonEnabled] = useState(false);
   const widgetRef = useRef();
-  const [mailerState, setMailerState] = useState({
+  const [mailerState, setMailerState] = usePersistedState("MAILER_STATE", {
     name: "",
     email: "",
     subject: "",
     message: "",
   });
+
   const reset = () => {
     setSubmitButtonEnabled(false);
     if (widgetRef.current) {

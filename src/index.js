@@ -9,9 +9,6 @@ import { AuthController } from "./Context/AuthContext";
 import { CalendarController } from "./Context/CalendarContext";
 import Toast from "./Components/Alerts/Toast";
 
-
-
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
