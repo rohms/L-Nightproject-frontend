@@ -1,20 +1,16 @@
 import React, { useState } from "react";
-import { NavLink, Navigate, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Styles/Index.css";
-import useAuthContext from "../hooks/useAuthContext";
-import { Button } from "@mui/material";
-import { Avatar } from "@mui/joy/Avatar";
+import { useAuthContext } from "../hooks/useAuthContext";
 import lnights from "../Images/lnightsmall.png";
 import lnightexs from "../Images/lnightexs.png";
 
 import "./Styles/Style.css";
-import classnames from "classnames";
 import { default as CloseIcon } from "@mui/icons-material/Close";
 import { default as MenuIcon } from "@mui/icons-material/Menu";
 
 const Navbar = (props) => {
-  const { isLogged, setIsLogged, logout, user } = useAuthContext();
-  const navigate = useNavigate();
+  const { isLogged, logout } = useAuthContext();
   const [active, setActive] = useState(false);
 
   const toggleMenu = () => {
@@ -23,7 +19,7 @@ const Navbar = (props) => {
 
   return (
     <div className="navbar">
-      <NavLink className="lnightlogo" to="/">
+      <NavLink className="lnightlogo" to="/" tabIndex="0">
         <img
           src={active ? lnightexs : lnights}
           alt="L-Night Berlin Group"
@@ -42,6 +38,7 @@ const Navbar = (props) => {
             <NavLink
               className="navlink nav"
               to="/about"
+              tabIndex="0"
               onClick={() => setActive(false)}
             >
               ABOUT
@@ -51,6 +48,7 @@ const Navbar = (props) => {
             <NavLink
               className="navlink nav"
               to="/people"
+              tabIndex="0"
               onClick={() => setActive(false)}
             >
               PEOPLE
@@ -60,6 +58,7 @@ const Navbar = (props) => {
             <NavLink
               className="navlink nav"
               to="/calendar"
+              tabIndex="0"
               onClick={() => setActive(false)}
             >
               CALENDAR
@@ -69,6 +68,7 @@ const Navbar = (props) => {
             <NavLink
               className="navlink nav"
               to="/gallery"
+              tabIndex="0"
               onClick={() => setActive(false)}
             >
               GALLERY
@@ -78,6 +78,7 @@ const Navbar = (props) => {
             <NavLink
               className="navlink nav"
               to="/merchandise"
+              tabIndex="0"
               onClick={() => setActive(false)}
             >
               MERCH
@@ -87,22 +88,26 @@ const Navbar = (props) => {
             <NavLink
               className="navlink nav"
               to="/contact"
+              tabIndex="0"
               onClick={() => setActive(false)}
             >
               CONTACT
             </NavLink>
           </li>
           <li>
-            <NavLink to="/adlog" onClick={() => setActive(false)}>
+            <NavLink to="/adlog" tabIndex="0" onClick={() => setActive(false)}>
               <i className="fas fa-toolbox"></i>
             </NavLink>
           </li>
+          <li className="nav-logout">
+            {isLogged ? (
+              <button id="logout" onClick={logout}>
+                Logout
+              </button>
+            ) : null}
+          </li>
         </ul>
-        {isLogged ? (
-          <Button id="logout" onClick={logout}>
-            Logout
-          </Button>
-        ) : null}
+
         <div></div>
       </nav>
     </div>

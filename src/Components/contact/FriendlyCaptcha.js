@@ -34,7 +34,7 @@ const FriendlyCaptcha = forwardRef(
     return (
       <div
         ref={container}
-        class="frc-captcha"
+        className="frc-captcha"
         data-sitekey={process.env.REACT_APP_FRIENDLY_CAPTCHA_SITEKEY}
       ></div>
     );

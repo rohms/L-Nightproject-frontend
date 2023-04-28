@@ -60,12 +60,12 @@ const ContactForm = () => {
         }
       );
 
-      setMailerState({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-      });
+      // setMailerState({
+      //   name: "",
+      //   email: "",
+      //   subject: "",
+      //   message: "",
+      // });
       resetWidget();
       toast.success("Email was sent!");
     } catch (err) {
@@ -120,7 +120,9 @@ const ContactForm = () => {
           <FriendlyCaptcha
             ref={widgetRef}
             siteKey={process.env.REACT_APP_FRIENDLY_CAPTCHA_SITEKEY}
-            doneCallback={() => setSubmitButtonEnabled(true)}
+            doneCallback={() => {
+              setSubmitButtonEnabled(true);
+            }}
             errorCallback={(err) => {
               toast.error(`Anti robot widget issue: ${err}`);
               setSubmitButtonEnabled(true);

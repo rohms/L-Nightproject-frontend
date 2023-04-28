@@ -243,6 +243,13 @@ h1 {
   max-width: 100%;
 } */
 
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 /* Contact form */
 .thewholecontact {
   max-width: 100%;

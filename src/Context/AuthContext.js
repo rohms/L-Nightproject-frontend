@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -15,18 +15,7 @@ export const AuthController = (props) => {
   const controller = new AbortController();
   const { signal } = controller;
 
-  useEffect(() => {
-    if (localStorage.getItem("token")) getUserWithToken();
-
-    return () => {
-      controller.abort();
-    };
-  }, []);
-
-  // console.log(isLogged);
-  // console.log(setUser);
-
-  const getUserWithToken = () => {
+  const getUserWithToken = useCallback(() => {
     axios
       .get(adminURL, {
         headers: {
@@ -36,7 +25,10 @@ export const AuthController = (props) => {
         signal,
       })
       .then((res) => {
+        // console.log("response for getting users", res);
         setUser(res.data.user);
+        // need to check
+        // console.log("user", user);
         setIsLogged(true);
       })
       .catch((error) => {
@@ -44,13 +36,24 @@ export const AuthController = (props) => {
           toast.error("Request aborted");
         }
       });
-  };
+  }, [signal, setUser, setIsLogged]);
+
+  // console.log("user", user);
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) getUserWithToken();
+  }, [getUserWithToken]);
 
   const login = (loginData) => {
-    axios.post(adminLogin, loginData).then((res) => {
-      localStorage.setItem("token", res.data);
-      getUserWithToken();
-    });
+    axios
+      .post(adminLogin, loginData)
+      .then((res) => {
+        localStorage.setItem("token", res.data);
+        getUserWithToken();
+        toast.success("Login successful");
+        navigate("/");
+      })
+      .catch((err) => toast.error(`Password or email is incorrect`));
   };
 
   const register = (registerData) => {

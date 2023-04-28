@@ -1,20 +1,22 @@
 import GalleryPics from "./Gallerypics";
 import { Gallery } from "react-grid-gallery";
-import useAuthContext from "../../hooks/useAuthContext";
+import { useAuthContext } from "../../hooks/useAuthContext";
 import ImageUpload from "./ImageUpload";
 import { useState, useRef } from "react";
 import FsLightbox from "fslightbox-react";
+// will be used later when images are coming from CloudFront via S3 bucket and backend
+// import { Loader } from "../Alerts/Loader";
 
 const GridGallery = () => {
-  const { isLogged, user } = useAuthContext();
+  const { isLogged } = useAuthContext();
   const [imageIndex, setImageIndex] = useState(0);
   const [toggler, setToggler] = useState(false);
-  const [key, setKey] = useState(false);
+  // const [loading, setLoading] = useState(true);
   const firstImageRef = useRef(null);
 
   const galleryPicSources = GalleryPics.map((image) => image.src);
 
-  const handleClick = (index, item) => {
+  const handleClick = (index) => {
     setImageIndex(index);
     setToggler(!toggler);
   };
@@ -29,6 +31,10 @@ const GridGallery = () => {
     ref: index === 0 ? firstImageRef : undefined,
   }));
 
+  // if (loading) {
+  //   return <Loader />;
+  // }
+
   return (
     <>
       <h2>Gallery</h2>
@@ -37,7 +43,6 @@ const GridGallery = () => {
         <FsLightbox
           toggler={toggler}
           sources={galleryPicSources}
-          // key={key}
           slide={imageIndex + 1}
           type="image"
         />

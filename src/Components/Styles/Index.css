@@ -67,6 +67,19 @@ nav {
   margin-right: 2rem;
 }
 
+.nav-logout #logout {
+  padding: 0.35rem;
+  background-color: #59f780;
+  border-radius: 0.5rem;
+  font-family: "Poppins", sans-serif;
+  border: 2px solid #59f780;
+}
+
+#logout:hover {
+  background-color: rgb(59, 223, 223);
+  cursor: pointer;
+}
+
 .menu-icon .menu {
   display: none;
   color: white;
