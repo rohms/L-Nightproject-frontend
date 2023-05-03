@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { PropTypes } from "prop-types";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -7,7 +7,7 @@ const Toast = ({ msg }) => {
   return (
     <ToastContainer
       position="bottom-center"
-      autoClose={4000}
+      autoClose={3000}
       hideProgressBar={false}
       newestOnTop={false}
       closeOnClick={true}

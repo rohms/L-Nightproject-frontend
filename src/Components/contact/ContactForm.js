@@ -3,18 +3,20 @@ import "../Styles/Style.css";
 import FriendlyCaptcha from "./FriendlyCaptcha";
 import { toast } from "react-toastify";
 import emailjs from "@emailjs/browser";
+import { usePersistedState } from "../../hooks/usePersistedState";
 
 emailjs.init("ykmQT0YdejnTpSxVS");
 
 const ContactForm = () => {
   const [submitButtonEnabled, setSubmitButtonEnabled] = useState(false);
   const widgetRef = useRef();
-  const [mailerState, setMailerState] = useState({
+  const [mailerState, setMailerState] = usePersistedState("MAILER_STATE", {
     name: "",
     email: "",
     subject: "",
     message: "",
   });
+
   const reset = () => {
     setSubmitButtonEnabled(false);
     if (widgetRef.current) {
@@ -58,12 +60,12 @@ const ContactForm = () => {
         }
       );
 
-      setMailerState({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-      });
+      // setMailerState({
+      //   name: "",
+      //   email: "",
+      //   subject: "",
+      //   message: "",
+      // });
       resetWidget();
       toast.success("Email was sent!");
     } catch (err) {
@@ -118,7 +120,9 @@ const ContactForm = () => {
           <FriendlyCaptcha
             ref={widgetRef}
             siteKey={process.env.REACT_APP_FRIENDLY_CAPTCHA_SITEKEY}
-            doneCallback={() => setSubmitButtonEnabled(true)}
+            doneCallback={() => {
+              setSubmitButtonEnabled(true);
+            }}
             errorCallback={(err) => {
               toast.error(`Anti robot widget issue: ${err}`);
               setSubmitButtonEnabled(true);

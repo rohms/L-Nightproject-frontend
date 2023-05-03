@@ -1,14 +1,13 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, forwardRef } from "react";
 import "../Styles/Popup.css";
 import "../Styles/Style.css";
-import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContext";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
 import { default as CloseIcon } from "@mui/icons-material/Close";
 
-const AdminModal = ({ setOpen }) => {
+const AdminModal = forwardRef(({ setOpen }, ref) => {
   const { login } = useContext(AuthContext);
   const [submitting, setSubmitting] = useState(false);
 
@@ -25,11 +24,11 @@ const AdminModal = ({ setOpen }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setSubmitting(true);
     login({
       email: formik.values.email,
       password: formik.values.password,
       validationSchema: { validateSchema },
-      // need to check backend for the login part, possibly the migration from heroku
     });
     if (formik.errors.email) {
       toast.error("Invalid email address");
@@ -37,10 +36,7 @@ const AdminModal = ({ setOpen }) => {
     } else if (formik.errors.password) {
       toast.error("Password must be at least 5 characters");
       return;
-    } else {
-      toast.success("Successfully logged in");
     }
-    navigate("/");
   };
 
   const formik = useFormik({
@@ -51,13 +47,16 @@ const AdminModal = ({ setOpen }) => {
     validationSchema: validateSchema,
   });
 
-  let navigate = useNavigate();
-
   return (
-    <div className="login--modal">
+    <div className="login--modal" tabIndex="0">
       <div className="modal-content">
         <CloseIcon onClick={() => setOpen(false)} className="closeicon" />
-        <form className="admin-login" onSubmit={handleSubmit} noValidate>
+        <form
+          className="admin-login"
+          onSubmit={handleSubmit}
+          noValidate
+          ref={ref}
+        >
           <span>Login</span>
           <input
             className="form-control inp_text"
@@ -74,7 +73,7 @@ const AdminModal = ({ setOpen }) => {
           <input
             className="form-control"
             type="password"
-            autocomplete="on"
+            autoComplete="on"
             onChange={formik.handleChange}
             value={formik.values.password}
             name="password"
@@ -83,17 +82,13 @@ const AdminModal = ({ setOpen }) => {
           {formik.errors.password ? (
             <p className="error">{formik.errors.password}</p>
           ) : null}
-          <button
-            type="submit"
-            className="button"
-            onClick={() => setSubmitting(true)}
-          >
+          <button type="submit" className="button" disabled={submitting}>
             Login
           </button>
         </form>
       </div>
     </div>
   );
-};
+});
 
 export default AdminModal;

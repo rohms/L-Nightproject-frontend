@@ -1,5 +1,7 @@
 import React from "react";
 import "../Components/Styles/Style.css";
+import { Card } from "../Components/Card";
+import signature from "../Images/lnight-signature.png";
 
 const About = () => {
   return (
@@ -12,9 +14,9 @@ const About = () => {
           The L-Night Berlin group was founded in April 2013. The original
           organizers have changed but the group is going strong. We could safely
           say that the L-Night is one of the most regular meetings for English
-          speaking queer and lesbian women / LGBTQIA* in Berlin. Queer visibility is
-          important and that is also why this group is so precious in many ways.
-          L-Night has been bringing people together already almost for a decade!
+          speaking queer and lesbian women / LGBTQIA* in Berlin. Queer
+          visibility is important and that is also why this group is so precious
+          in many ways. L-Night has been bringing people together for a decade!
         </p>
         <span>🦄🦄🦄🦄🦄</span>
         <p>
@@ -24,20 +26,26 @@ const About = () => {
           are marginalised within the LGBTQIA+ community, such as trans women,
           women of colour, older women, disabled women and other similar groups.
         </p>
-        <h3>When do we meet?</h3>
-        <p>
-          We meet mostly every Tuesday around 8pm and occasionally on weekends
-          for special events/clubs. We have had also our first official L-Night
-          party event couple years ago and have bigger plans ahead!
-        </p>
-        <h3>What kind of events do we have?</h3>
-        <p>
-          Venues change week to week as we explore queer and alternative spaces
-          stretching from Prenzlauer Berg to Neukölln and beyond. Past events
-          include park outings, BBQs, club nights, Christmas markets and many
-          other events. We have many favourite bars but new suggestions are
-          always welcome.
-        </p>
+        <div className="card-grid">
+          <Card>
+            <h3>When do we meet?</h3>
+            <p>
+              We meet mostly every Tuesday around 7-8pm and occasionally on
+              weekends for special events/clubs. We have had also our first
+              official L-Night party event and have bigger plans ahead!
+            </p>
+          </Card>
+          <Card>
+            <h3>What kind of events do we have?</h3>
+            <p>
+              Venues change week to week as we explore queer and alternative
+              spaces stretching from Prenzlauer Berg to Neukölln and beyond.
+              Past events include park outings, BBQs, club nights, Christmas
+              markets and many other events. We have many favourite bars but new
+              suggestions are always welcome.
+            </p>
+          </Card>
+        </div>
         <span>🦄🦄🦄🦄🦄</span>
         <p>
           L-night has expanded steadily since its creation in April 2013. We
@@ -47,13 +55,10 @@ const About = () => {
           of friends or enjoy a drink or trip to the park with like-minded
           people, join us on Tuesday!
         </p>
-        <p>
-          <b>
-            With warm regards,
-            <br />
-            The L-Night admin team
-          </b>
-        </p>
+        <div className="signature">
+          <b>With warm regards,</b>
+          <img src={signature} alt="signature of L-Night Admin Team" />
+        </div>
       </div>
     </div>
   );
