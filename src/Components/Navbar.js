@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import "./Styles/Index.css";
 import { useAuthContext } from "../hooks/useAuthContext";
 import lnights from "../Images/lnightsmall.png";
 import lnightexs from "../Images/lnightexs.png";
-
-import "./Styles/Style.css";
 import { default as CloseIcon } from "@mui/icons-material/Close";
 import { default as MenuIcon } from "@mui/icons-material/Menu";
+import { default as LoginIcon } from "@mui/icons-material/Login";
 
 const Navbar = (props) => {
   const { isLogged, logout } = useAuthContext();
@@ -36,7 +34,9 @@ const Navbar = (props) => {
           </div>
           <li>
             <NavLink
-              className="navlink nav"
+              className={(navData) =>
+                navData.isActive ? "navlink active" : "navlink"
+              }
               to="/about"
               tabIndex="0"
               onClick={() => setActive(false)}
@@ -46,7 +46,9 @@ const Navbar = (props) => {
           </li>
           <li>
             <NavLink
-              className="navlink nav"
+              className={(navData) =>
+                navData.isActive ? "navlink active" : "navlink"
+              }
               to="/people"
               tabIndex="0"
               onClick={() => setActive(false)}
@@ -56,7 +58,9 @@ const Navbar = (props) => {
           </li>
           <li>
             <NavLink
-              className="navlink nav"
+              className={(navData) =>
+                navData.isActive ? "navlink active" : "navlink"
+              }
               to="/calendar"
               tabIndex="0"
               onClick={() => setActive(false)}
@@ -66,7 +70,9 @@ const Navbar = (props) => {
           </li>
           <li>
             <NavLink
-              className="navlink nav"
+              className={(navData) =>
+                navData.isActive ? "navlink active" : "navlink"
+              }
               to="/gallery"
               tabIndex="0"
               onClick={() => setActive(false)}
@@ -76,7 +82,9 @@ const Navbar = (props) => {
           </li>
           <li>
             <NavLink
-              className="navlink nav"
+              className={(navData) =>
+                navData.isActive ? "navlink active" : "navlink"
+              }
               to="/merchandise"
               tabIndex="0"
               onClick={() => setActive(false)}
@@ -86,17 +94,14 @@ const Navbar = (props) => {
           </li>
           <li>
             <NavLink
-              className="navlink nav"
+              className={(navData) =>
+                navData.isActive ? "navlink active" : "navlink"
+              }
               to="/contact"
               tabIndex="0"
               onClick={() => setActive(false)}
             >
               CONTACT
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/adlog" tabIndex="0" onClick={() => setActive(false)}>
-              <i className="fas fa-toolbox"></i>
             </NavLink>
           </li>
           <li className="nav-logout">
@@ -107,8 +112,14 @@ const Navbar = (props) => {
             ) : null}
           </li>
         </ul>
-
-        <div></div>
+        <NavLink
+          className="login-link"
+          to="/adlog"
+          tabIndex="0"
+          onClick={() => setActive(false)}
+        >
+          <LoginIcon />
+        </NavLink>
       </nav>
     </div>
   );

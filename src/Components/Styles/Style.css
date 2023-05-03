@@ -64,7 +64,7 @@ body {
   font-size: var(--fs-body);
   overflow: auto;
   line-height: 1.6;
-  margin-bottom: 110px;
+  margin-bottom: 2rem;
   overflow-y: scroll;
 }
 
@@ -79,6 +79,15 @@ body {
   max-width: 35%;
   margin-top: 7em;
   min-width: 14em;
+}
+
+.celebrate {
+  width: 130px;
+  transform: rotate(30deg);
+  position: absolute;
+  top: 20;
+  right: 0;
+  cursor: pointer;
 }
 
 .headergroup {
@@ -121,7 +130,7 @@ p {
   text-align: center;
   display: flex;
   flex-direction: column;
-  padding: 0em 2.5em;
+  padding: 0em 2em;
   margin: 0 auto;
   line-height: 1.4;
   max-width: 900px;
@@ -131,6 +140,18 @@ p {
   max-width: 90%;
   margin: 0 auto;
   padding: 1em 0;
+}
+
+.signature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.signature img {
+  width: 400px;
+  height: 100px;
 }
 
 /* People section */
@@ -314,22 +335,41 @@ h1 {
   margin-block: 1rem;
 }
 
+/* Card */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
 .card {
   margin: 1rem;
   flex-basis: 45%;
   padding: 1.5rem;
-  text-align: left;
   color: inherit;
   text-decoration: none;
-  border: 1px solid #eaeaea;
+  border: 2px solid #d714e9;
+  background-color: #f2d5f3;
+  box-shadow: 10px 10px 15px -7px #7e7b7e;
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
 }
 
+.card:hover {
+  border-color: rgb(0, 217, 255);
+  user-select: none;
+}
+
+.card h3 {
+  text-align: left;
+}
+
 .card p {
   margin: 0;
-  font-size: 1.25rem;
+  font-size: 1rem;
   line-height: 1.5;
+  text-align: left;
 }
 
 @media (max-width: 480px) {
