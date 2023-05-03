@@ -1,10 +1,17 @@
 import React from "react";
 import "./Styles/Index.css";
 import "./Styles/Style.css";
+import { NavLink } from "react-router-dom";
+import { Seo } from "./Seo";
 
 const Footer = () => {
   return (
-    <div className="footer">
+    <>
+      <Seo
+        title="L-Night | Berlin"
+        description="L-Night Website Footer"
+        type="footer"
+      />
       <footer>
         <div className="footer__socials">
           <div className="footer__icons">
@@ -38,9 +45,12 @@ const Footer = () => {
             </a>
           </div>
         </div>
-        <p className="footer__copyright">©2023 L-Night</p>
+        <p className="footer__copyright">Copyright © 2023 L-Night</p>
+        <div className="legal-stuff">
+          <NavLink to="/privacy-policy">Privacy Policy</NavLink>
+        </div>
       </footer>
-    </div>
+    </>
   );
 };
 

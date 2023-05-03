@@ -4,6 +4,7 @@ import { useAuthContext } from "../../hooks/useAuthContext";
 import ImageUpload from "./ImageUpload";
 import { useState, useRef } from "react";
 import FsLightbox from "fslightbox-react";
+import { Seo } from "../Seo";
 // will be used later when images are coming from CloudFront via S3 bucket and backend
 // import { Loader } from "../Alerts/Loader";
 
@@ -37,6 +38,12 @@ const GridGallery = () => {
 
   return (
     <>
+      <Seo
+        title="Gallery"
+        description="Gallery of the L-Night Berlin Group with pictures about the L-Night events."
+        type="website"
+        keywords={["L-Night Berlin", "L-Night Gallery", "L-Night Photos"]}
+      />
       <h2>Gallery</h2>
       <div className="Gallerypicscontainer">
         <Gallery images={galleryImages} onClick={handleClick} />

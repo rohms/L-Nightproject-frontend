@@ -16,19 +16,13 @@ html {
 :root {
   --ff-primary: "Poppins", sans-serif;
   --ff-secondary: "Roboto", sans-serif;
-
   --fw-reg: 300;
   --fw-bold: 900;
-
-  /* --linear-gradient: linear-gradient(270deg, var(--clr-footer) 0%, pink 100%); */
-  --gradient: linear-gradient(#e66465, #9198e5);
+  --nav-background: #b60389;
   --clr-background: #f3f3f3;
   --clr-dark: #303030;
-  /* --clr-nav: var(--linear-gradient); */
-  /* --clr-footer: #e4dada; */
   --clr-footer: #cebfbf;
   --clr-socials: rgb(168, 116, 155);
-
   --fs-h1: 2.5rem;
   --fs-h2: 2.1rem;
   --fs-h3: 1.5rem;
@@ -86,7 +80,7 @@ body {
   transform: rotate(30deg);
   position: absolute;
   top: 20;
-  right: 0;
+  right: 5;
   cursor: pointer;
 }
 
@@ -117,6 +111,7 @@ h4 {
 p {
   margin: 0 auto;
   text-align: center;
+  font-size: var(--fs-body);
 }
 
 .neonline {
@@ -134,6 +129,19 @@ p {
   margin: 0 auto;
   line-height: 1.4;
   max-width: 900px;
+}
+
+.what-header {
+  transition: 700ms ease;
+  font-variation-settings: "wght" 311;
+  letter-spacing: -2px;
+}
+
+.what-header:hover {
+  font-variation-settings: "wght" 900;
+  letter-spacing: 0px;
+  color: #13cbd1;
+  cursor: default;
 }
 
 .aboutmaincontainer p {
@@ -192,8 +200,6 @@ p {
 }
 
 /* Calendar section */
-.calendarpage {
-}
 
 .allcalendar {
   /* max-height: 100%; */
@@ -259,11 +265,6 @@ h1 {
 
 /*Gallery*/
 
-/* .Gallerypicscontainer {
-  height: 100%;
-  max-width: 100%;
-} */
-
 .loader-container {
   display: flex;
   justify-content: center;
@@ -278,7 +279,6 @@ h1 {
 }
 
 .form-container {
-  /* position: relative; */
   left: 15%;
   max-width: 70%;
   font-family: var(--ff-primary);
