@@ -19,6 +19,7 @@
     "friendly-challenge": "^0.9.9",
     "fslightbox-react": "^1.7.2",
     "gapi-script": "^1.2.0",
+    "nth-check": "^2.1.1",
     "prop-types": "^15.8.1",
     "react": "^18.1.0",
     "react-calendar": "^4.0.0",
