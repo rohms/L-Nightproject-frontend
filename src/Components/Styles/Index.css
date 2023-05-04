@@ -206,6 +206,12 @@ footer {
 .legal-stuff {
   display: flex;
   gap: 0.5rem;
+  color: #998394;
+}
+
+.legal-stuff a {
+  color: inherit;
+  font-size: small;
 }
 
 /* Privacy policy */

@@ -60,12 +60,12 @@ const ContactForm = () => {
         }
       );
 
-      // setMailerState({
-      //   name: "",
-      //   email: "",
-      //   subject: "",
-      //   message: "",
-      // });
+      setMailerState({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
       resetWidget();
       toast.success("Email was sent!");
     } catch (err) {

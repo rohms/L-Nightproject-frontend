@@ -42,7 +42,6 @@ const Navbar = (props) => {
                   navData.isActive ? "navlink active" : "navlink"
                 }
                 path={link.path}
-                tabIndex="0"
                 label={link.title}
                 isActive={(match, location) => location.pathname === link.to}
                 onClick={() => setActive(false)}
