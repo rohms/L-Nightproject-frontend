@@ -2,16 +2,32 @@ import GalleryPics from "./Gallerypics";
 import { Gallery } from "react-grid-gallery";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import ImageUpload from "./ImageUpload";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import FsLightbox from "fslightbox-react";
-// will be used later when images are coming from CloudFront via S3 bucket and backend
-// import { Loader } from "../Alerts/Loader";
+import { Seo } from "../Seo";
+import { Loader } from "../Alerts/Loader";
+
+const loadImages = (images) => {
+  const promises = images.map((image) => {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.src = image.src;
+      img.onload = () => {
+        image.width = img.width;
+        image.height = img.height;
+        resolve();
+      };
+      img.onerror = () => reject();
+    });
+  });
+  return Promise.all(promises);
+};
 
 const GridGallery = () => {
   const { isLogged } = useAuthContext();
   const [imageIndex, setImageIndex] = useState(0);
   const [toggler, setToggler] = useState(false);
-  // const [loading, setLoading] = useState(true);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
   const firstImageRef = useRef(null);
 
   const galleryPicSources = GalleryPics.map((image) => image.src);
@@ -21,22 +37,45 @@ const GridGallery = () => {
     setToggler(!toggler);
   };
 
-  const galleryImages = GalleryPics.map((image, index) => ({
-    src: image.src,
-    thumbnail: image.src,
-    thumbnailWidth: 320,
-    thumbnailHeight: 212,
-    caption: image.title,
-    onLoad: index === 0 ? () => setToggler(true) : undefined,
-    ref: index === 0 ? firstImageRef : undefined,
-  }));
+  const galleryImages = GalleryPics.map((image, index) => {
+    // console.log(img);
+    const ref = index === 0 ? firstImageRef : null;
 
-  // if (loading) {
-  //   return <Loader />;
-  // }
+    return {
+      src: image.src,
+      thumbnail: image.src,
+      width: image.width,
+      height: image.height,
+      caption: image.title,
+      onLoad: () => {
+        if (index === 0) {
+          setToggler(true);
+        }
+      },
+      ref,
+    };
+  });
+
+  useEffect(() => {
+    loadImages(GalleryPics)
+      .then(() => setImagesLoaded(true))
+      .catch((err) => console.log(err));
+  }, []);
+
+  if (!imagesLoaded) {
+    return <Loader />;
+  }
+
+  // console.log("galleryimages array", galleryImages);
 
   return (
     <>
+      <Seo
+        title="Gallery"
+        description="Gallery of the L-Night Berlin Group with pictures about the L-Night events."
+        type="website"
+        keywords={["L-Night Berlin", "L-Night Gallery", "L-Night Photos"]}
+      />
       <h2>Gallery</h2>
       <div className="Gallerypicscontainer">
         <Gallery images={galleryImages} onClick={handleClick} />

@@ -5,9 +5,10 @@ import CalendarMain from "./Components/calendar/CalendarMain";
 import Contactpage from "./Components/contact/Contactpage";
 import Homepage from "./Components/Homepage";
 import Merch from "./Components/merch/Merch";
-import Navbar from "./Components/Navbar";
+import Navbar from "./Components/navigation/Navbar";
 import PeopleMain from "./Components/people/PeopleMain";
 import AdminPage from "./Components/admin/AdminPage";
+import PrivacyPolicy from "./Components/PrivacyPolicy";
 import Footer from "./Components/Footer";
 import "./Components/Styles/Index.css";
 import "./Components/Styles/Style.css";
@@ -27,6 +28,7 @@ const AppRouter = () => {
           <Route path="/merchandise" element={<Merch />} />
           <Route path="/contact" element={<Contactpage />} />
           <Route path="/adlog" element={<AdminPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>
       </div>
       <Footer />
