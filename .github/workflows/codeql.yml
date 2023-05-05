@@ -11,6 +11,10 @@
 #
 name: "CodeQL"
 
+options:
+  codeql: {}
+  default: false
+
 on:
   push:
     branches: [ "main" ]
