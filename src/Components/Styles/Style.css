@@ -76,12 +76,13 @@ body {
 }
 
 .celebrate {
-  width: 130px;
+  max-width: 15%;
   transform: rotate(30deg);
   position: absolute;
   top: 20;
   right: 5;
   cursor: pointer;
+  height: auto;
 }
 
 .headergroup {

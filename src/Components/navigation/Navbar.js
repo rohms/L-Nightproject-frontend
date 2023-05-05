@@ -44,7 +44,7 @@ const Navbar = (props) => {
                 path={link.path}
                 label={link.title}
                 isActive={(match, location) => location.pathname === link.to}
-                onClick={() => setActive(false)}
+                setActive={setActive}
               >
                 {link.title}
               </NavigationLink>
