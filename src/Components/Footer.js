@@ -9,7 +9,7 @@ const Footer = () => {
     <>
       <Seo
         title="L-Night | Berlin"
-        description="L-Night Website Footer"
+        description="L-Night Website Footer with contact information and social media links"
         type="footer"
       />
       <footer>

@@ -21,7 +21,7 @@ const Homepage = () => {
     <>
       <Seo
         title="L-Night Berlin Homepage"
-        description="L-Night Berlin is a group for LGBTQIA+ people/ women in Berlin. Our mission is to provide a welcoming and inclusive community where LGBTQIA women* can be themselves and find support from others who understand their experiences. Join us today and discover the power of community!"
+        description="L-Night Berlin is a group for LGBTQIA+ people/women in Berlin. Our mission is to provide a welcoming and inclusive community for LGBTQIA people/women. We have meetings on Tuesdays. Join us today and discover the power of community!"
         type="website"
         keywords={["L-Night", "L-Night Berlin", "L-Night Homepage"]}
       />
