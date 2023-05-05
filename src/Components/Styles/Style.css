@@ -387,3 +387,9 @@ h1 {
     left: 5%;
   }
 }
+
+@media (max-width: 290px) {
+  .celebrate {
+    display: none;
+  }
+}
