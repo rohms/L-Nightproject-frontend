@@ -5,7 +5,7 @@ import "./Components/Styles/Style.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
-import { AuthController } from "./Context/AuthContext";
+import AuthController from "./Context/AuthContext";
 import { CalendarController } from "./Context/CalendarContext";
 import Toast from "./Components/Alerts/Toast";
 import { HelmetProvider } from "react-helmet-async";

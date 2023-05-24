@@ -4,66 +4,62 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 export const AuthContext = createContext();
+
 const adminURL = process.env.REACT_APP_ADMINUSERS;
 const adminLogin = process.env.REACT_APP_ADMINUSERS_LOGIN;
 const adminRegister = process.env.REACT_APP_ADMINUSERS_REGISTER;
 
-export const AuthController = (props) => {
+const AuthController = (props) => {
   const [user, setUser] = useState();
   const [isLogged, setIsLogged] = useState(false);
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const controller = new AbortController();
   const { signal } = controller;
 
-  const getUserWithToken = useCallback(() => {
-    axios
-      .get(adminURL, {
+  const getUserWithToken = useCallback(async () => {
+    try {
+      const res = await axios.get(adminURL, {
         headers: {
           "auth-token": localStorage.getItem("token"),
           "Access-Control-Allow-Origin": true,
         },
         signal,
-      })
-      .then((res) => {
-        // console.log("response for getting users", res);
-        setUser(res.data.user);
-        // need to check
-        // console.log("user", user);
-        setIsLogged(true);
-      })
-      .catch((error) => {
-        if (error.name === "AbortError") {
-          toast.error("Request aborted");
-        }
       });
-  }, [signal, setUser, setIsLogged]);
-
-  // console.log("user", user);
+      setUser(res.data.user);
+      setIsLogged(true);
+    } catch (error) {
+      if (error.name === "AbortError") {
+        toast.error("Request aborted");
+      }
+    }
+  }, [signal]);
 
   useEffect(() => {
-    if (localStorage.getItem("token")) getUserWithToken();
+    if (localStorage.getItem("token")) {
+      getUserWithToken();
+    }
   }, [getUserWithToken]);
 
-  const login = (loginData) => {
-    axios
-      .post(adminLogin, loginData)
-      .then((res) => {
-        localStorage.setItem("token", res.data);
-        getUserWithToken();
-        toast.success("Login successful");
-        navigate("/");
-      })
-      .catch((err) => toast.error(`Password or email is incorrect`));
+  const login = async (loginData) => {
+    try {
+      const res = await axios.post(adminLogin, loginData);
+      localStorage.setItem("token", res.data);
+      await getUserWithToken();
+      toast.success("Login successful");
+      navigate("/");
+    } catch (err) {
+      toast.error(`Password or email is incorrect`);
+    }
   };
 
-  const register = (registerData) => {
-    axios
-      .post(adminRegister, registerData)
-      .then((res) => {
-        localStorage.setItem("token", res.headers["auth-token"]);
-        getUserWithToken();
-      })
-      .catch((err) => console.log("err", err, err.response));
+  const register = async (registerData) => {
+    try {
+      const res = await axios.post(adminRegister, registerData);
+      localStorage.setItem("token", res.headers["auth-token"]);
+      await getUserWithToken();
+    } catch (err) {
+      console.log("err", err, err.response);
+    }
   };
 
   const logout = (logoutData) => {
@@ -85,3 +81,5 @@ export const AuthController = (props) => {
     <AuthContext.Provider value={value}>{props.children}</AuthContext.Provider>
   );
 };
+
+export default AuthController
