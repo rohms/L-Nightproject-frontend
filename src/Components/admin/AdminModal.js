@@ -7,22 +7,22 @@ import * as Yup from "yup";
 import { toast } from "react-toastify";
 import { default as CloseIcon } from "@mui/icons-material/Close";
 
+const validateSchema = Yup.object({
+  email: Yup.string()
+    .email("Invalid email address")
+    .required("Email is a required field"),
+  password: Yup.string()
+    .min(5)
+    .max(20)
+    .required("Password must be at least 5 characters"),
+  confirmPassword: Yup.string().oneOf([Yup.ref("password"), null], "Passwords must match")
+});
+
 const AdminModal = forwardRef(({ setOpen }, ref) => {
   const { login } = useContext(AuthContext);
   const [submitting, setSubmitting] = useState(false);
 
-  const validateSchema = Yup.object({
-    email: Yup.string()
-      .email("Invalid email address")
-      .required("Email is a required field"),
-    password: Yup.string()
-      .min(5)
-      .max(20)
-      .required("Password must be at least 5 characters"),
-    confirmPassword: Yup.string().oneOf([Yup.ref("password"), null]),
-  });
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
     login({
