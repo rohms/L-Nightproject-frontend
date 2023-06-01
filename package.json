@@ -15,7 +15,7 @@
     "axios": "^1.4.0",
     "classnames": "^2.3.2",
     "dotenv": "^16.1.0",
-    "formik": "^2.4.0",
+    "formik": "^2.4.1",
     "friendly-challenge": "^0.9.12",
     "fslightbox-react": "^1.7.4",
     "gapi-script": "^1.2.0",
