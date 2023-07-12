@@ -22,7 +22,7 @@ describe("ContactForm", () => {
       // cy.intercept("POST", /.*friendlycaptcha\.com\/api\/.*\/verify/).as("verifyCaptcha");
       // cy.stub(cy, "wait").as("captchaWait");
 
-      // TODO: need to see how to bypass captcha
+      // TODO: need to see how to bypass captcha and fix the stub and intercept
       cy.intercept("POST", /.*emailjs.*/, (req) => {
         req.reply((res) => {
           res.send({ success: true })
