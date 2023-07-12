@@ -1,6 +1,7 @@
 # L-Nightproject
 
-![lnightpage](https://user-images.githubusercontent.com/86847314/227710250-2ef21fbc-33a4-4082-9819-5735ec3b82c4.JPG)
+![lnightnew](https://github.com/rohms/L-Nightproject-frontend/assets/86847314/e042abd2-4c56-4959-9e7d-67b3a6aa3a16)
+
 
 The front end of the L-Night project
 
