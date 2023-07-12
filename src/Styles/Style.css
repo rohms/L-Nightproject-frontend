@@ -119,6 +119,29 @@ p {
   height: 8vh;
 }
 
+/* 404 page */
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.not-found h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  padding-bottom: 0;
+
+}
+
+.not-found h2 {
+  margin-top: 0rem;
+  font-size: 2rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
+
 /* About section css */
 .textcontainer {
   max-height: 100%;
