@@ -3,7 +3,7 @@ import "../../Styles/Gallery.css";
 import axios from "axios";
 
 const PicURL = process.env.REACT_APP_PICTURES_GET;
-const GettingAllPics = `https://l-night-backend.onrender.com/pictures`;
+const GettingAllPics = process.env.REACT_APP_PICTURES_GET_ALL;
 
 export const GettingPics = () => {
   const [pictures, setPictures] = useState([]);
