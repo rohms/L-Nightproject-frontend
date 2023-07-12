@@ -2,13 +2,12 @@ import { Avatar } from "@mui/material";
 import rhm1 from "../../Images/rhm1.jpg";
 import placeh from "../../Images/placeholder.jpg";
 import dmks from "../../Images/dmks.jpg";
-import jt from "../../Images/jt.jpg";
+
 
 export const Hosts = [
   { id: 1, name: "Roosa", imgSrc: rhm1 },
-  { id: 3, name: "Justine", imgSrc: jt },
-  { id: 4, name: "Dominika", imgSrc: dmks },
-  { id: 7, name: "Evelyn", imgSrc: placeh },
+  { id: 2, name: "Dominika", imgSrc: dmks },
+  { id: 2, name: "Evelyn", imgSrc: placeh },
 ];
 
 export const Avatars = () => {
@@ -18,6 +17,7 @@ export const Avatars = () => {
         return (
           <div className="personcontainer" key={id}>
             <Avatar
+            className="avatar"
               alt={host.name}
               src={host.imgSrc}
               sx={{ width: 100, height: 100 }}

@@ -1,0 +1,106 @@
+.wholesigninpage {
+  width: 100%;
+  height: 100%;
+  /* position: relative; */
+}
+
+.popupcontainer {
+  font-size: 15px;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.popupcontainer h1 {
+  color: rgb(79, 126, 119);
+  margin-bottom: 40px;
+}
+
+.admin-login {
+  height: 20rem;
+}
+
+.login--modal button,
+.admin-login-button {
+  background: rgb(134, 184, 241);
+  color: rgb(67, 83, 81);
+  margin-top: 3rem;
+  padding: 0.8rem 1.5rem;
+  font-weight: bolder;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 5px;
+  box-shadow: 4px 5px 20px -2px rgb(79, 126, 119);
+  border: none;
+}
+
+.admin-login-button:hover,
+.login--modal button:hover {
+  background: rgb(73, 198, 207);
+  color: rgb(198, 200, 207);
+  cursor: pointer;
+}
+
+.login--modal {
+  width: 22.5rem;
+  padding: 8% 0 0;
+  margin: auto;
+}
+
+.modal-content {
+  background-color: #d1cfcf;
+  border-radius: 0.625rem;
+  max-width: 22.5rem;
+  margin: 0 auto 6.25rem;
+  padding: 0 2.8125rem 2.8125rem 2.8125rem;
+  text-align: center;
+}
+
+.login--modal span {
+  font-size: 2.5rem;
+  color: rgb(134, 184, 241);
+  margin-bottom: 1.5625rem;
+  display: block;
+  user-select: none;
+}
+
+.login--modal p.error {
+  margin: 0 0 0.625rem 0.2rem;
+  text-align: left;
+  font-size: 0.813rem;
+  color: #cc3300;
+  /* position: fixed; */
+}
+
+.inp_text {
+  margin-bottom: 0.4rem;
+}
+
+.admin-login input {
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  border-radius: 0.3125rem;
+  padding: 0.9375rem;
+  color: var(--clr-dark);
+  font-size: 0.875rem;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.closeicon {
+  margin-left: 18.18rem;
+  cursor: pointer;
+}
+
+.close {
+  position: absolute;
+  top: 0.5%;
+  right: 0.5%;
+  font-size: 30px;
+  cursor: pointer;
+}

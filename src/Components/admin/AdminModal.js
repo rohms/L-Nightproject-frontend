@@ -1,6 +1,5 @@
 import React, { useContext, useState, forwardRef } from "react";
-import "../Styles/Popup.css";
-import "../Styles/Style.css";
+import "../../Styles/Popup.css"
 import { AuthContext } from "../../Context/AuthContext";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -48,11 +47,12 @@ const AdminModal = forwardRef(({ setOpen }, ref) => {
   });
 
   return (
-    <div className="login--modal" tabIndex="0">
+    <div className="login--modal"  tabIndex="0">
       <div className="modal-content">
         <CloseIcon onClick={() => setOpen(false)} className="closeicon" />
         <form
           className="admin-login"
+          data-cy="login-modal"
           onSubmit={handleSubmit}
           noValidate
           ref={ref}

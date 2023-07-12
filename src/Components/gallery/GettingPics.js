@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
-import "../Styles/Gallery.css";
+import "../../Styles/Gallery.css";
 import axios from "axios";
-import "../Styles/Style.css";
 
 const PicURL = process.env.REACT_APP_PICTURES_GET;
-const GettingAllPics = `http://localhost:4000/pictures/`;
-// const gettingAPic = `https://l-night-app.herokuapp.com/pictures/${key}`;
+const GettingAllPics = `https://l-night-backend.onrender.com/pictures`;
 
 export const GettingPics = () => {
   const [pictures, setPictures] = useState([]);
@@ -18,25 +16,27 @@ export const GettingPics = () => {
     const getPics = async () => {
       try {
         const response = await axios.get(GettingAllPics, {
-          headers: {
-            "Content-Type": "image/png" || "image/jpg" || "image/jpeg",
-          },
+
+          // headers: {
+          //   "Content-Type": "image/png" || "image/jpg" || "image/jpeg",
+          // },
           signal,
         });
-        setPictures(response.pictures);
+        // console.log('response from fetching pics', response)
+        setPictures(response.data);
         setError(null);
       } catch (error) {
         setError(error);
-        setPictures(null);
+        setPictures([]);
       } finally {
         setLoading(false);
       }
     };
     getPics();
 
-    return () => {
-      controller.abort();
-    };
+    // return () => {
+    //   controller.abort();
+    // };
   }, []);
 
   return (

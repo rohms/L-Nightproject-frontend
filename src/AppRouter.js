@@ -10,9 +10,10 @@ import PeopleMain from "./Components/people/PeopleMain";
 import AdminPage from "./Components/admin/AdminPage";
 import PrivacyPolicy from "./Components/PrivacyPolicy";
 import Footer from "./Components/Footer";
-import "./Components/Styles/Index.css";
-import "./Components/Styles/Style.css";
+import "./Index.css";
+import "./Styles/Style.css";
 import { GridGallery } from "./Components/gallery/GridGallery";
+import NotFound from "./Components/Alerts/NotFound";
 
 const AppRouter = () => {
   return (
@@ -29,6 +30,7 @@ const AppRouter = () => {
           <Route path="/contact" element={<Contactpage />} />
           <Route path="/adlog" element={<AdminPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
       <Footer />

@@ -1,5 +1,4 @@
 import React from "react";
-import "../Styles/Style.css";
 import { Avatars } from "./Hosts";
 
 

@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
-import "../Styles/Popup.css";
+// import "../Styles/Popup.css";
 import AdminModal from "./AdminModal";
-import "../Styles/Style.css";
 import Modal from "@mui/joy/Modal";
 
 const AdminPage = () => {
@@ -24,7 +23,7 @@ const AdminPage = () => {
   return (
     <div className="wholesigninpage">
       <div className="popupcontainer">
-        <button className="admin-login-button" onClick={() => setOpen(true)}>
+        <button className="admin-login-button" data-cy="adminlogin" onClick={() => setOpen(true)}>
           Go to Login
         </button>
         <Modal open={open} onClose={() => setOpen(false)}>

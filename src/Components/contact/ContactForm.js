@@ -1,9 +1,9 @@
 import React, { useState, useRef } from "react";
-import "../Styles/Style.css";
 import FriendlyCaptcha from "./FriendlyCaptcha";
 import { toast } from "react-toastify";
 import emailjs from "@emailjs/browser";
 import { usePersistedState } from "../../hooks/usePersistedState";
+import Gradient from "rgt";
 
 emailjs.init("ykmQT0YdejnTpSxVS");
 
@@ -77,7 +77,7 @@ const ContactForm = () => {
     <div className="thewholecontact">
       <div className="form-container">
         <form className="contact-form" onSubmit={(e) => submitEmail(e, reset)}>
-          <h2>CONTACT</h2>
+          <h1 className="no-margin-padding"><Gradient dir="left-to-right" from="#e30cad" to="#ff8000">Contact</Gradient></h1>
           <input
             type="text"
             name="name"
@@ -118,6 +118,7 @@ const ContactForm = () => {
           ></textarea>
 
           <FriendlyCaptcha
+            data-cy="friendly-captcha"
             ref={widgetRef}
             siteKey={process.env.REACT_APP_FRIENDLY_CAPTCHA_SITEKEY}
             doneCallback={() => {
@@ -131,6 +132,7 @@ const ContactForm = () => {
           <button
             type="submit"
             className="submit-button"
+            data-cy="submit-button"
             disabled={submitButtonEnabled ? undefined : "null"}
           >
             Send message

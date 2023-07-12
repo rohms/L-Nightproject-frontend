@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { CalendarContext } from "../../Context/CalendarContext";
 import unicorn from "../../Images/unicorn3even.png";
-import "../Styles/Style.css";
 // import { getGoogleCalendarEvents } from "./GoogleCalendar";
 
 const CalendarDetail = (props) => {
@@ -20,14 +19,14 @@ const CalendarDetail = (props) => {
           return (
             <div className="calendar--eventinfo" key={event._id}>
               <b>
-                <h3>{event.eventname}</h3>
+                <h3 data-cy="eventName">{event.eventname}</h3>
               </b>
 
               <div className="calendar-eventinfo__details">
                 <h4>Location:</h4>
-                <p>{event.location}</p>
+                <p data-cy="eventLocation">{event.location}</p>
                 <h4>What we do:</h4>
-                <p>{event.description}</p>
+                <p data-cy="eventDescription">{event.description}</p>
                 <p className="eventinfo-diclaimer">
                   <b>
                     For more info please join the FB or Meetup groups. <br />{" "}
@@ -40,7 +39,7 @@ const CalendarDetail = (props) => {
         })
       ) : (
         <div className="allcalendar">
-          <div className="unicorn">
+          <div data-cy="unicorn" className="unicorn">
             <img src={unicorn} alt="Unicorn" />
             <p>Unicorns are sleeping today..zzz..</p>
           </div>

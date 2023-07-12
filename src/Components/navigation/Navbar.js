@@ -27,10 +27,10 @@ const Navbar = (props) => {
           onClick={() => setActive(false)}
         />
       </NavLink>
-      <div className="menu-icon">
-        <MenuIcon className="menu" onClick={toggleMenu} />
+      <div className="menu-icon" >
+        <MenuIcon className="menu" onClick={toggleMenu} data-cy="menu" />
       </div>
-      <nav className={classNames("slider", { active: active })}>
+      <nav className={classNames("slider", { active: active })} data-cy="slider">
         <ul>
           <div className="closed">
             <CloseIcon className="close" onClick={toggleMenu} />

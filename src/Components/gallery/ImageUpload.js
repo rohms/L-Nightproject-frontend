@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
-import "../Styles/Gallery.css";
+import React, { useState } from "react";
+import "../../Styles/Gallery.css";
 import axios from "axios";
-import "../Styles/Style.css";
 import { toast } from "react-toastify";
 import { ProgressBar } from "../Alerts/ProgressBar";
 
@@ -65,7 +64,7 @@ const ImageUpload = () => {
   return (
     <div className="imageUpload">
       <h2>Upload Image</h2>
-      <form onSubmit={uploadFiles} encType="multipart/form-data">
+      <form onSubmit={uploadFiles} encType="multipart/form-data" data-cy="image-upload-form">
         <input
           type="file"
           name="picture"

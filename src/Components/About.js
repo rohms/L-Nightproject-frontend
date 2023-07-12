@@ -1,8 +1,9 @@
 import React from "react";
-import "../Components/Styles/Style.css";
+// import "../Components/Styles/Style.css";
 import { Card } from "../Components/Card";
 import signature from "../Images/lnight-signature.png";
 import { Seo } from "./Seo";
+import Gradient from "rgt"
 
 const About = () => {
   return (
@@ -21,7 +22,7 @@ const About = () => {
       <div className="aboutmaincontainer">
         <div className="textcontainer">
           <div>
-            <h2 className="what-header">What is the L-Night group?</h2>
+            <h1 className="what-header no-margin-padding"><Gradient dir="left-to-right" from="#e30cad" to="#ff8000">What is the L-Night group?</Gradient></h1>
           </div>
           <p>
             <b>The L-Night Berlin</b> group was founded in <b>April 2013.</b>{" "}
