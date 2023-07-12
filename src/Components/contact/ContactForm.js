@@ -3,7 +3,6 @@ import FriendlyCaptcha from "./FriendlyCaptcha";
 import { toast } from "react-toastify";
 import emailjs from "@emailjs/browser";
 import { usePersistedState } from "../../hooks/usePersistedState";
-import Gradient from "rgt";
 
 emailjs.init("ykmQT0YdejnTpSxVS");
 
@@ -77,7 +76,7 @@ const ContactForm = () => {
     <div className="thewholecontact">
       <div className="form-container">
         <form className="contact-form" onSubmit={(e) => submitEmail(e, reset)}>
-          <h1 className="no-margin-padding"><Gradient dir="left-to-right" from="#e30cad" to="#ff8000">Contact</Gradient></h1>
+          <h1 className="no-margin-padding gradient">Contact</h1>
           <input
             type="text"
             name="name"

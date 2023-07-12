@@ -7,7 +7,7 @@ import FsLightbox from "fslightbox-react";
 import { Seo } from "../Seo";
 import { Loader } from "../Alerts/Loader";
 import GettingPics from "./GettingPics";
-import Gradient from "rgt";
+
 
 const loadImages = (images) => {
   const promises = images.map((image) => {
@@ -78,7 +78,7 @@ const GridGallery = () => {
         type="website"
         keywords={["L-Night Berlin", "L-Night Gallery", "L-Night Photos"]}
       />
-      <h1 className="no-margin-padding"><Gradient dir="left-to-right" from="#e30cad" to="#ff8000">Gallery</Gradient></h1>
+      <h1 className="no-margin-padding gradient">Gallery</h1>
       <div className="Gallerypicscontainer">
         <Gallery data-cy="react-grid-gallery" images={galleryImages} onClick={handleClick} />
         <FsLightbox

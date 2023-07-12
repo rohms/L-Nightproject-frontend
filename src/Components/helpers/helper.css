@@ -3,3 +3,9 @@
     margin: 0;
     padding: 0;
 }
+
+.gradient {
+        background: linear-gradient(to right, #e30cad 0%, #ff8000 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+}

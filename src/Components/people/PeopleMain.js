@@ -1,7 +1,6 @@
 import React from "react";
 import PeopleHosts from "./PeopleHosts.js";
 import { Seo } from "../Seo.js";
-import Gradient from "rgt"
 
 const PeopleMain = () => {
   return (
@@ -13,7 +12,7 @@ const PeopleMain = () => {
         keywords={["L-Night Berlin", "L-Night People", "L-Night Hosts"]}
       />
       <div className="peoplemaincontainer">
-        <h1 className="no-margin-padding"><Gradient dir="left-to-right" from="#e30cad" to="#ff8000">The people behind L-Night</Gradient></h1>
+        <h1 className="no-margin-padding gradient">The people behind L-Night</h1>
         <PeopleHosts />
       </div>
     </>
