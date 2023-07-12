@@ -4,7 +4,7 @@ import neonline from "../Images/neon-line.png";
 import celebrate from "../Images/pngwing.png";
 import ConfettiExplosion from "react-confetti-explosion";
 import { Seo } from "./Seo";
-import Gradient from 'rgt'
+import Gradient from "rgt";
 
 const Homepage = () => {
   const [confetti, setConfetti] = useState(false);
