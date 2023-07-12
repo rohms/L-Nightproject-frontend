@@ -1,6 +1,5 @@
 import { useEffect, useRef, forwardRef } from "react";
 import { WidgetInstance } from "friendly-challenge";
-import "../Styles/Style.css";
 import { toast } from "react-toastify";
 
 const FriendlyCaptcha = forwardRef(

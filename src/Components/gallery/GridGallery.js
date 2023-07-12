@@ -6,6 +6,8 @@ import { useState, useRef, useEffect } from "react";
 import FsLightbox from "fslightbox-react";
 import { Seo } from "../Seo";
 import { Loader } from "../Alerts/Loader";
+import GettingPics from "./GettingPics";
+
 
 const loadImages = (images) => {
   const promises = images.map((image) => {
@@ -76,9 +78,9 @@ const GridGallery = () => {
         type="website"
         keywords={["L-Night Berlin", "L-Night Gallery", "L-Night Photos"]}
       />
-      <h2>Gallery</h2>
+      <h1 className="no-margin-padding gradient">Gallery</h1>
       <div className="Gallerypicscontainer">
-        <Gallery images={galleryImages} onClick={handleClick} />
+        <Gallery data-cy="react-grid-gallery" images={galleryImages} onClick={handleClick} />
         <FsLightbox
           toggler={toggler}
           sources={galleryPicSources}
@@ -87,6 +89,10 @@ const GridGallery = () => {
         />
       </div>
       {isLogged ? <ImageUpload /> : null}
+      
+      {/* <GettingPics />
+      <p>s3 image via cloudfront</p>
+      <img src={`${process.env.REACT_APP_CLOUDFRONT_URL}/pngwing.png `}alt="picture" height="50px" /> */}
     </>
   );
 };

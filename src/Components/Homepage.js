@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import lnightdp from "../Images/lnightdp.png";
 import neonline from "../Images/neon-line.png";
 import celebrate from "../Images/pngwing.png";
-import "./Styles/Style.css";
 import ConfettiExplosion from "react-confetti-explosion";
 import { Seo } from "./Seo";
 
@@ -57,8 +56,8 @@ const Homepage = () => {
         )}
 
         <div className="headergroup">
-          <h1 className="headergroup__h1">
-            Welcome to meet new people in the L-Night
+          <h1 className="headergroup__h1 gradient">
+            Meet new people in L-Night
           </h1>
           <span>
             <img className="neonline" src={neonline} alt="neon line" />

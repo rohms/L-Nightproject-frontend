@@ -1,6 +1,5 @@
 import React from "react";
 import PeopleHosts from "./PeopleHosts.js";
-import "../Styles/Style.css";
 import { Seo } from "../Seo.js";
 
 const PeopleMain = () => {
@@ -13,7 +12,7 @@ const PeopleMain = () => {
         keywords={["L-Night Berlin", "L-Night People", "L-Night Hosts"]}
       />
       <div className="peoplemaincontainer">
-        <h2>The people behind the L-Night</h2>
+        <h1 className="no-margin-padding gradient">The people behind L-Night</h1>
         <PeopleHosts />
       </div>
     </>

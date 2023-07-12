@@ -1,8 +1,8 @@
 import React from "react";
 import ReactCalendar from "./ReactCalendar";
 import CalendarDetail from "./CalendarDetail";
-import "../Styles/Style.css";
 import { Seo } from "../Seo.js";
+
 
 const Calendarmain = () => {
   return (
@@ -14,7 +14,7 @@ const Calendarmain = () => {
         keywords={["L-Night Berlin", "L-Night Calendar", "L-Night Events"]}
       />
       <div className="calendarpage">
-        <h2>See the upcoming events</h2>
+        <h1 className="no-margin-padding gradient">See the upcoming events</h1>
         <h4>🦄 events are highlighted in purple 🦄</h4>
         <div className="allcalendar">
           <CalendarDetail />
