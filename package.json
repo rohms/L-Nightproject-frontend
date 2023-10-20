@@ -16,7 +16,7 @@
     "classnames": "^2.3.2",
     "dotenv": "^16.3.1",
     "formik": "^2.4.5",
-    "friendly-challenge": "^0.9.13",
+    "friendly-challenge": "^0.9.14",
     "fslightbox-react": "^1.7.6",
     "gapi-script": "^1.2.0",
     "prop-types": "^15.8.1",
