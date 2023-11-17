@@ -3,19 +3,24 @@ import { CalendarContext } from "../../Context/CalendarContext";
 import unicorn from "../../Images/unicorn3even.png";
 // import { getGoogleCalendarEvents } from "./GoogleCalendar";
 
-const CalendarDetail = (props) => {
+const CalendarDetail = () => {
   const { events, date } = useContext(CalendarContext);
-  const currentEvent = events.filter(
+
+  if (!events) {
+    return <p>Issue, there are no events!</p>;
+  }
+
+  const eventsArray = Object.values(events);
+
+  const currentEvents = eventsArray.filter(
     (event) => new Date(event.start_time).toDateString() === date.toDateString()
   );
 
-  // console.log(currentEvent);
-  // console.log(events);
-  // getGoogleCalendarEvents();
+
   return (
     <div className="calendar-detailbox">
-      {currentEvent.length > 0 ? (
-        currentEvent.map((event) => {
+      {currentEvents.length > 0 ? (
+        currentEvents.map((event) => {
           return (
             <div className="calendar--eventinfo" key={event._id}>
               <b>

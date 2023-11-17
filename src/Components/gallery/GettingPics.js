@@ -12,31 +12,29 @@ export const GettingPics = () => {
   const controller = new AbortController();
   const { signal } = controller;
 
+  const getPics = async () => {
+    try {
+      const response = await axios.get(GettingAllPics, {
+        // headers: {
+        //   "Content-Type": "image/png" || "image/jpg" || "image/jpeg",
+        // },
+        signal,
+      });
+      // console.log('response from fetching pics', response)
+      setPictures(response.data);
+      setError(null);
+    } catch (error) {
+      setError(error);
+      setPictures([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+
   useEffect(() => {
-    const getPics = async () => {
-      try {
-        const response = await axios.get(GettingAllPics, {
-
-          // headers: {
-          //   "Content-Type": "image/png" || "image/jpg" || "image/jpeg",
-          // },
-          signal,
-        });
-        // console.log('response from fetching pics', response)
-        setPictures(response.data);
-        setError(null);
-      } catch (error) {
-        setError(error);
-        setPictures([]);
-      } finally {
-        setLoading(false);
-      }
-    };
     getPics();
-
-    // return () => {
-    //   controller.abort();
-    // };
+    return () => controller.abort();
   }, []);
 
   return (

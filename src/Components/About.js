@@ -1,5 +1,4 @@
 import React from "react";
-// import "../Components/Styles/Style.css";
 import { Card } from "../Components/Card";
 import signature from "../Images/lnight-signature.png";
 import { Seo } from "./Seo";

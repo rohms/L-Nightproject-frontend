@@ -40,7 +40,6 @@ const GridGallery = () => {
   };
 
   const galleryImages = GalleryPics.map((image, index) => {
-    // console.log(img);
     const ref = index === 0 ? firstImageRef : null;
 
     return {
@@ -89,7 +88,7 @@ const GridGallery = () => {
         />
       </div>
       {isLogged ? <ImageUpload /> : null}
-      
+
       {/* <GettingPics />
       <p>s3 image via cloudfront</p>
       <img src={`${process.env.REACT_APP_CLOUDFRONT_URL}/pngwing.png `}alt="picture" height="50px" /> */}

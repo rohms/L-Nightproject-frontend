@@ -3,7 +3,6 @@ import ReactCalendar from "./ReactCalendar";
 import CalendarDetail from "./CalendarDetail";
 import { Seo } from "../Seo.js";
 
-
 const Calendarmain = () => {
   return (
     <>

@@ -9,19 +9,22 @@ export const CalendarController = (props) => {
   const [loading, setLoading] = useState(false);
   const [date, setDate] = useState(new Date());
 
-  useEffect(() => {
+  const getEvents = async () => {
     setLoading(true);
+    try {
+      const response = await axios.get(eventsAPI);
+      setEvents(response.data);
+      console.log('my events from fetching', response.data);
+      setLoading(false);
+    } catch (error) {
+      console.log(error.message);
+    }
+
+  };
+
+  useEffect(() => {
     getEvents();
   }, []);
-
-  const getEvents = async () => {
-    await axios
-      .get(eventsAPI)
-
-      .catch((error) => console.log(error.message))
-      .then((response) => setEvents(response.data));
-    setLoading(false);
-  };
 
   const value = {
     events,
