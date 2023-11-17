@@ -1,0 +1,16 @@
+name: Cypress tests
+# on: [push] still commented as all Cypress tests need to be fully working before
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Cypress tests
+        run: npm test
