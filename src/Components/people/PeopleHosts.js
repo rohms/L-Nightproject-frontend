@@ -1,7 +1,6 @@
 import React from "react";
 import { Avatars } from "./Hosts";
 
-
 const PeopleHosts = () => {
   return (
     <div>

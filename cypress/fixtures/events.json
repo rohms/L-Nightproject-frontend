@@ -1,23 +1,23 @@
 [
-    {
-      "_id": "1",
-      "eventname": "Event 1",
-      "location": "Location 1",
-      "description": "Description 1",
-      "eventdate": "2022-01-01T10:00:00.000Z"
-    },
-    {
-      "_id": "2",
-      "eventname": "Event 2",
-      "location": "Location 2",
-      "description": "Description 2",
-      "eventdate": "2022-01-15T14:30:00.000Z"
-    },
-    {
-      "_id": "3",
-      "eventname": "Event 3",
-      "location": "Location 3",
-      "description": "Description 3",
-      "eventdate": "2022-02-01T19:00:00.000Z"
-    }
-  ]
+  {
+    "_id": "1",
+    "eventname": "Event 1",
+    "location": "Location 1",
+    "description": "Description 1",
+    "start_time": "2023-11-23T10:00:00.000Z"
+  },
+  {
+    "_id": "2",
+    "eventname": "Event 2",
+    "location": "Location 2",
+    "description": "Description 2",
+    "start_time": "2023-11-30T14:30:00.000Z"
+  },
+  {
+    "_id": "3",
+    "eventname": "Event 3",
+    "location": "Location 3",
+    "description": "Description 3",
+    "start_time": "2023-11-27T12:00:00.000Z"
+  }
+]
