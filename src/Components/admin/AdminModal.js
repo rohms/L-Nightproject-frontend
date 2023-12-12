@@ -3,7 +3,6 @@ import "../../Styles/Popup.css"
 import { AuthContext } from "../../Context/AuthContext";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { toast } from "react-toastify";
 import { default as CloseIcon } from "@mui/icons-material/Close";
 
 const validateSchema = Yup.object({
@@ -29,13 +28,6 @@ const AdminModal = forwardRef(({ setOpen }, ref) => {
       password: formik.values.password,
       validationSchema: { validateSchema },
     });
-    if (formik.errors.email) {
-      toast.error("Invalid email address");
-      return;
-    } else if (formik.errors.password) {
-      toast.error("Password must be at least 5 characters");
-      return;
-    }
   };
 
   const formik = useFormik({
@@ -47,7 +39,7 @@ const AdminModal = forwardRef(({ setOpen }, ref) => {
   });
 
   return (
-    <div className="login--modal"  tabIndex="0">
+    <div className="login--modal" tabIndex="0">
       <div className="modal-content">
         <CloseIcon onClick={() => setOpen(false)} className="closeicon" />
         <form
