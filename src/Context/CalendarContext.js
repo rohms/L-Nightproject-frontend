@@ -14,7 +14,6 @@ export const CalendarController = (props) => {
     try {
       const response = await axios.get(eventsAPI);
       setEvents(response.data);
-      console.log('my events from fetching', response.data);
       setLoading(false);
     } catch (error) {
       console.log(error.message);
