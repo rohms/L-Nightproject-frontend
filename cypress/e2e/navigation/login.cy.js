@@ -9,6 +9,7 @@ describe('should be able to login and logout', () => {
         password: "12345678asdf",
     }
 
+    // need to change this to programmatical login -> custom commands
     it("logs in the user when clicking the login button", async () => {
         // in network I see POST request to /login and GET to /adminusers
         cy.intercept("POST", /login/, {
@@ -45,6 +46,7 @@ describe('should be able to login and logout', () => {
         // and logout
         cy.wait(500);
         cy.get('#logout').click();
+        cy.wait(5000);
     })
 
     it("shows an error message when logging in with incorrect email or password", () => {
@@ -56,9 +58,15 @@ describe('should be able to login and logout', () => {
             }
         }).as("loginerrorRequest")
 
+        cy.wait(5000);
+        // TODO: Cannot find the login link, even though the logout worked from the first test
         cy.get(".login-link").click();
         cy.url().location("pathname").should("equal", "/adlog");
         cy.get('[data-cy="adminlogin"]').click();
+        cy.get('[data-cy="login-modal"]').click();
+
+        cy.wait(500);
+
         cy.get('[data-cy="login-modal"]').should("be.visible");
         cy.get('input[name="email"]').type("wrong_email@example.com");
         cy.get('input[name="password"]').type("wrong_password");
