@@ -6,7 +6,7 @@ import { ProgressBar } from "../Alerts/ProgressBar";
 
 const PicsURL = process.env.REACT_APP_PICTURES_URL;
 
-const ImageUpload = () => {
+const ImageUpload = ({ onRefetch }) => {
   const [images, setImages] = useState([]);
   const [uploadedFiles, setUploadedFiles] = useState([]);
   const [uploadError, setUploadError] = useState("");
@@ -49,6 +49,7 @@ const ImageUpload = () => {
           toast.error("Not a valid image format");
         else {
           toast.success("Files were uploaded");
+          onRefetch();
         }
       })
       .catch((err) => {
