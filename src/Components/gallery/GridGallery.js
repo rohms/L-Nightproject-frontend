@@ -1,27 +1,53 @@
+import GalleryPics from "./Gallerypics";
 import { Gallery } from "react-grid-gallery";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import ImageUpload from "./ImageUpload";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import FsLightbox from "fslightbox-react";
 import { Seo } from "../Seo";
 import { Loader } from "../Alerts/Loader";
-import { useQuery } from "../../hooks/useQuery";
+import GettingPics from "./GettingPics";
 
-const PICTURE_URL = process.env.REACT_APP_PICTURES_GET_ALL;
+
+const loadImages = (images) => {
+  const promises = images.map((image) => {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.src = image.src;
+      img.onload = () => {
+        image.width = img.width;
+        image.height = img.height;
+        resolve();
+      };
+      img.onerror = () => reject();
+    });
+  });
+  return Promise.all(promises);
+};
 
 const GridGallery = () => {
   const { isLogged } = useAuthContext();
   const [imageIndex, setImageIndex] = useState(0);
-  const firstImageRef = useRef(null);
   const [toggler, setToggler] = useState(false);
-  const [refetch, setRefetch] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+  const firstImageRef = useRef(null);
 
-  const { data: imageURLS, error: fetchError, loading: imagesLoading } = useQuery(PICTURE_URL, refetch);
+  const galleryPicSources = GalleryPics.map((image) => image.src);
 
-  const preparedImages = imageURLS?.map((url, index) => {
+  const handleClick = (index) => {
+    setImageIndex(index);
+    setToggler(!toggler);
+  };
+
+  const galleryImages = GalleryPics.map((image, index) => {
     const ref = index === 0 ? firstImageRef : null;
+
     return {
-      src: url,
+      src: image.src,
+      thumbnail: image.src,
+      width: image.width,
+      height: image.height,
+      caption: image.title,
       onLoad: () => {
         if (index === 0) {
           setToggler(true);
@@ -31,19 +57,17 @@ const GridGallery = () => {
     };
   });
 
-  if (imagesLoading) return <Loader />;
+  useEffect(() => {
+    loadImages(GalleryPics)
+      .then(() => setImagesLoaded(true))
+      .catch((err) => console.log(err));
+  }, []);
 
-  if (fetchError)
-    return <div>There was an error while fetching the pictures: {fetchError.message}</div>;
-
-  const handleClick = (index) => {
-    setImageIndex(index);
-    setToggler(!toggler);
-  };
-
-  const handleRefetch = () => {
-    setRefetch((prev) => prev + 1);
+  if (!imagesLoaded) {
+    return <Loader />;
   }
+
+  // console.log("galleryimages array", galleryImages);
 
   return (
     <>
@@ -55,21 +79,19 @@ const GridGallery = () => {
       />
       <h1 className="no-margin-padding gradient">Gallery</h1>
       <div className="Gallerypicscontainer">
-        <Gallery
-          data-cy="react-grid-gallery"
-          images={preparedImages}
-          onClick={handleClick}
-        />
-
-        {imageURLS ? <FsLightbox
-          data-cy="fs-lightbox"
+        <Gallery data-cy="react-grid-gallery" images={galleryImages} onClick={handleClick} />
+        <FsLightbox
           toggler={toggler}
-          sources={imageURLS}
+          sources={galleryPicSources}
           slide={imageIndex + 1}
           type="image"
-        /> : <p>There are no pictures yet, sorry!</p>}
+        />
       </div>
-      {isLogged ? <ImageUpload onRefetch={handleRefetch} /> : null}
+      {isLogged ? <ImageUpload /> : null}
+
+      {/* <GettingPics />
+      <p>s3 image via cloudfront</p>
+      <img src={`${process.env.REACT_APP_CLOUDFRONT_URL}/pngwing.png `}alt="picture" height="50px" /> */}
     </>
   );
 };
