@@ -11,7 +11,7 @@
     "@mui/material": "^5.15.9",
     "axios": "^1.6.7",
     "classnames": "^2.5.1",
-    "dotenv": "^16.4.1",
+    "dotenv": "^16.4.2",
     "formik": "^2.4.5",
     "friendly-challenge": "^0.9.14",
     "fslightbox-react": "^1.7.6",
