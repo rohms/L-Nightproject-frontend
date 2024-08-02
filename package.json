@@ -9,7 +9,7 @@
     "@mui/icons-material": "^5.16.6",
     "@mui/joy": "^5.0.0-beta.48",
     "@mui/material": "^5.16.6",
-    "axios": "^1.7.2",
+    "axios": "^1.7.3",
     "classnames": "^2.5.1",
     "dotenv": "^16.4.5",
     "formik": "^2.4.6",
